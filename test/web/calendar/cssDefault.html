@@ -1,0 +1,251 @@
+<!doctype html>
+<html>
+  <title>zb-calendar CSS</title>
+</html>
+<body>
+  
+  <!-- zb-calendar styles -->
+  <style>
+    .root {
+      min-width: 200px;
+      min-height: 200px;
+      height: 100%;
+      background-color: darkgray;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 2fr 2fr 2fr 2fr 2fr 2fr; 
+      grid-column-gap: 1px;
+      grid-row-gap: 1px;
+    }
+
+    .parent-cell {
+      position: relative;
+      cursor: pointer;
+    }
+    .child-cell {
+      position: absolute;
+      color: rgb(248, 248, 248);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      user-select: none;
+    }
+    
+    .parent-dayOfWeek {
+      background-color: royalblue;
+      cursor: default;
+    }
+    .parent-normal-odd {
+      background-color: rgb(248, 248, 248);
+    }
+    .parent-normal-even {
+      background-color: rgb(230, 230, 230);
+    }
+    .parent-highlightColumn-odd {
+      background-color: lightgoldenrodyellow;
+    }
+    .parent-highlightColumn-even {
+      background-color: #dadab9;
+    }
+    .parent-selected {
+      background-color: #8dc8f7;
+      border: 2px solid #3f51b5;
+    }
+
+    .parent-normal-odd:hover {
+      background-color: lightsteelblue;
+    }
+    .parent-normal-even:hover {
+      background-color: lightsteelblue;
+    }
+    .parent-highlightColumn-odd:hover {
+      background-color: lightsteelblue;
+    }
+    .parent-highlightColumn-even:hover {
+      background-color: lightsteelblue;
+    }
+    .parent-selected:hover {
+      background-color: #6f9ec3;
+      border: 2px solid #3f51b5;
+    }
+
+    .child-dayOfWeek {
+      color: rgb(248, 248, 248);
+      font-size: 1em;
+    }
+    .child-normal {
+      color: rgb(48, 48, 48);
+      font-size: 2em;
+    }
+    .child-nonMonth {
+      color: #9e9e9e;
+      font-size: 2em;
+    }
+  </style>
+  <div style="display: inline-block; width: 500px; height: 450px; font-family: Arial, Helvetica, sans-serif;">
+    <div class="root">
+      <!-- Row 1: Day Of Week -->
+      <div style="grid-row: 1; grid-column: 1;" class="parent-cell parent-dayOfWeek">
+        <div class="child-cell dayOfWeek-child">MON</div>
+      </div>
+      <div style="grid-row: 1; grid-column: 2;" class="parent-cell parent-dayOfWeek">
+        <div class="child-cell dayOfWeek-child">TUE</div>
+      </div>
+      <div style="grid-row: 1; grid-column: 3;" class="parent-cell parent-dayOfWeek">
+        <div class="child-cell dayOfWeek-child">WED</div>
+      </div>
+      <div style="grid-row: 1; grid-column: 4;" class="parent-cell parent-dayOfWeek">
+        <div class="child-cell dayOfWeek-child">THR</div>
+      </div>
+      <div style="grid-row: 1; grid-column: 5;" class="parent-cell parent-dayOfWeek">
+        <div class="child-cell dayOfWeek-child">FRI</div>
+      </div>
+      <div style="grid-row: 1; grid-column: 6;" class="parent-cell parent-dayOfWeek">
+        <div class="child-cell dayOfWeek-child">SAT</div>
+      </div>
+      <div style="grid-row: 1; grid-column: 7;" class="parent-cell parent-dayOfWeek">
+        <div class="child-cell dayOfWeek-child">SUN</div>
+      </div>
+    
+      <!-- Row 2 -->
+      <div style="grid-row: 2; grid-column: 1;" class="parent-cell parent-normal-odd">
+        <div class="child-cell child-nonMonth">29</div>
+      </div>
+      <div style="grid-row: 2; grid-column: 2;" class="parent-cell parent-normal-odd">
+        <div class="child-cell child-nonMonth">30</div>
+      </div>
+      <div style="grid-row: 2; grid-column: 3;" class="parent-cell parent-normal-odd">
+        <div class="child-cell child-nonMonth">31</div>
+      </div>
+      <div style="grid-row: 2; grid-column: 4;" class="parent-cell parent-normal-odd">
+        <div class="child-cell child-normal">1</div>
+      </div>
+      <div style="grid-row: 2; grid-column: 5;" class="parent-cell parent-normal-odd">
+        <div class="child-cell child-normal">2</div>
+      </div>
+      <div style="grid-row: 2; grid-column: 6;" class="parent-cell parent-highlightColumn-odd">
+        <div class="child-cell child-normal">3</div>
+      </div>
+      <div style="grid-row: 2; grid-column: 7;" class="parent-cell parent-highlightColumn-odd">
+        <div class="child-cell child-normal">4</div>
+      </div>
+
+      <!-- Row 3 -->
+      <div style="grid-row: 3; grid-column: 1;" class="parent-cell parent-normal-even">
+        <div class="child-cell child-normal">5</div>
+      </div>
+      <div style="grid-row: 3; grid-column: 2;" class="parent-cell parent-normal-even">
+        <div class="child-cell child-normal">6</div>
+      </div>
+      <div style="grid-row: 3; grid-column: 3;" class="parent-cell parent-normal-even">
+        <div class="child-cell child-normal">7</div>
+      </div>
+      <div style="grid-row: 3; grid-column: 4;" class="parent-cell parent-selected">
+        <div class="child-cell child-normal">8</div>
+      </div>
+      <div style="grid-row: 3; grid-column: 5;" class="parent-cell parent-normal-even">
+        <div class="child-cell child-normal">9</div>
+      </div>
+      <div style="grid-row: 3; grid-column: 6;" class="parent-cell parent-highlightColumn-even">
+        <div class="child-cell child-normal">10</div>
+      </div>
+      <div style="grid-row: 3; grid-column: 7;" class="parent-cell parent-highlightColumn-even">
+        <div class="child-cell child-normal">11</div>
+      </div>
+
+      <!-- Row 4 -->
+      <div style="grid-row: 4; grid-column: 1;" class="parent-cell parent-normal-odd">
+        <div class="child-cell child-normal">12</div>
+      </div>
+      <div style="grid-row: 4; grid-column: 2;" class="parent-cell parent-normal-odd">
+        <div class="child-cell child-normal">13</div>
+      </div>
+      <div style="grid-row: 4; grid-column: 3;" class="parent-cell parent-normal-odd">
+        <div class="child-cell child-normal">14</div>
+      </div>
+      <div style="grid-row: 4; grid-column: 4;" class="parent-cell parent-normal-odd">
+        <div class="child-cell child-normal">15</div>
+      </div>
+      <div style="grid-row: 4; grid-column: 5;" class="parent-cell parent-normal-odd">
+        <div class="child-cell child-normal">16</div>
+      </div>
+      <div style="grid-row: 4; grid-column: 6;" class="parent-cell parent-highlightColumn-odd">
+        <div class="child-cell child-normal">17</div>
+      </div>
+      <div style="grid-row: 4; grid-column: 7;" class="parent-cell parent-highlightColumn-odd">
+        <div class="child-cell child-normal">18</div>
+      </div>
+
+      <!-- Row 5 -->
+      <div style="grid-row: 5; grid-column: 1;" class="parent-cell parent-normal-even">
+        <div class="child-cell child-normal">19</div>
+      </div>
+      <div style="grid-row: 5; grid-column: 2;" class="parent-cell parent-normal-even">
+        <div class="child-cell child-normal">20</div>
+      </div>
+      <div style="grid-row: 5; grid-column: 3;" class="parent-cell parent-normal-even">
+        <div class="child-cell child-normal">21</div>
+      </div>
+      <div style="grid-row: 5; grid-column: 4;" class="parent-cell parent-normal-even">
+        <div class="child-cell child-normal">22</div>
+      </div>
+      <div style="grid-row: 5; grid-column: 5;" class="parent-cell parent-normal-even">
+        <div class="child-cell child-normal">23</div>
+      </div>
+      <div style="grid-row: 5; grid-column: 6;" class="parent-cell parent-highlightColumn-even">
+        <div class="child-cell child-normal">24</div>
+      </div>
+      <div style="grid-row: 5; grid-column: 7;" class="parent-cell parent-highlightColumn-even">
+        <div class="child-cell child-normal">25</div>
+      </div>
+
+      <!-- Row 6 -->
+      <div style="grid-row: 6; grid-column: 1;" class="parent-cell parent-normal-odd">
+        <div class="child-cell child-normal">26</div>
+      </div>
+      <div style="grid-row: 6; grid-column: 2;" class="parent-cell parent-normal-odd">
+        <div class="child-cell child-normal">27</div>
+      </div>
+      <div style="grid-row: 6; grid-column: 3;" class="parent-cell parent-normal-odd">
+        <div class="child-cell child-normal">28</div>
+      </div>
+      <div style="grid-row: 6; grid-column: 4;" class="parent-cell parent-normal-odd">
+        <div class="child-cell child-normal">29</div>
+      </div>
+      <div style="grid-row: 6; grid-column: 5;" class="parent-cell parent-normal-odd">
+        <div class="child-cell child-normal">30</div>
+      </div>
+      <div style="grid-row: 6; grid-column: 6;" class="parent-cell parent-highlightColumn-odd">
+        <div class="child-cell child-nonMonth">1</div>
+      </div>
+      <div style="grid-row: 6; grid-column: 7;" class="parent-cell parent-highlightColumn-odd">
+        <div class="child-cell child-nonMonth">2</div>
+      </div>
+
+      <!-- Row 7 -->
+      <div style="grid-row: 7; grid-column: 1;" class="parent-cell parent-normal-even">
+        <div class="child-cell child-nonMonth">3</div>
+      </div>
+      <div style="grid-row: 7; grid-column: 2;" class="parent-cell parent-normal-even">
+        <div class="child-cell child-nonMonth">4</div>
+      </div>
+      <div style="grid-row: 7; grid-column: 3;" class="parent-cell parent-normal-even">
+        <div class="child-cell child-nonMonth">5</div>
+      </div>
+      <div style="grid-row: 7; grid-column: 4;" class="parent-cell parent-normal-even">
+        <div class="child-cell child-nonMonth">6</div>
+      </div>
+      <div style="grid-row: 7; grid-column: 5;" class="parent-cell parent-normal-even">
+        <div class="child-cell child-nonMonth">7</div>
+      </div>
+      <div style="grid-row: 7; grid-column: 6;" class="parent-cell parent-highlightColumn-even">
+        <div class="child-cell child-nonMonth">8</div>
+      </div>
+      <div style="grid-row: 7; grid-column: 7;" class="parent-cell parent-highlightColumn-even">
+        <div class="child-cell child-nonMonth">9</div>
+      </div>
+
+    </div>
+  </div>
+
+</body>

@@ -1,0 +1,2269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: zbCulture</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: zbCulture</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>zbCulture<span class="signature">(code, monthList, shortMonthList, dayOfWeekList, shortDayOfWeekList, ordinalDayList, am, pm, longDateTime, shortDateTime, longDate, shortDate, longTime, shortTime, firstDayOfWeek)</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description">Contains different localization information.
+
+<pre>
+Date time formats:
+y
+2000-03-14 = 0
+2004-03-14 = 4
+2021-03-14 = 21
+yy
+2000-03-14 = 00
+2004-03-14 = 04
+2021-03-14 = 21
+yyyy
+2000-03-14 = 2000
+2004-03-14 = 2004
+2021-03-14 = 2021
+M (month)
+2020-03-14 = 3
+2020-11-14 = 11
+MM (month)
+2020-03-14 = 03
+2020-11-14 = 11
+MMM (short month name)
+2020-03-14 = Mar
+2020-11-14 = Nov
+MMMM (month name)
+2020-03-14 = March
+2020-11-14 = November
+d
+2020-03-04 = 4
+2020-03-12 = 12
+dd
+2020-03-04 = 04
+2020-03-12 = 12
+ddd (short day name)
+2020-03-04 = Tue
+2020-03-12 = Thu
+dddd (day name)
+2020-03-04 = Tuesday
+2020-03-12 = Thursday
+r (ordinal)
+2020-03-01 = st
+2020-03-12 = th
+R (ordinal)
+2020-03-01 = ST
+2020-03-12 = TH
+h (12 hour clock)
+03:56:34 = 3
+10:56:34 = 10
+14:56:34 = 2
+23:56:34 = 11
+hh (12 hour clock)
+03:56:34 = 03
+10:56:34 = 10
+14:56:34 = 02
+23:56:34 = 11
+H (24 hour clock)
+03:56:34 = 3
+10:56:34 = 10
+14:56:34 = 14
+23:56:34 = 23
+HH (24 hour clock)
+03:56:34 = 03
+10:56:34 = 10
+14:56:34 = 14
+23:56:34 = 23
+m (minute)
+03:06:04 = 0
+10:56:35 = 56
+mm (minute)
+03:06:04 = 06
+10:56:35 = 56
+s
+03:56:04 = 4
+10:56:35 = 35
+ss
+03:56:04 = 04
+10:56:35 = 35
+t
+03:56:04 = am
+18:56:35 = pm
+T
+03:56:04 = AM
+18:56:35 = PM
+Escape characters (note it is a forward slash)
+/y
+/M
+/d
+/r
+/R
+/h
+/H
+/m
+/s
+/t
+/T
+</pre></div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="zbCulture"><span class="type-signature"></span>new zbCulture<span class="signature">(code, monthList, shortMonthList, dayOfWeekList, shortDayOfWeekList, ordinalDayList, am, pm, longDateTime, shortDateTime, longDate, shortDate, longTime, shortTime, firstDayOfWeek)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Create a zbCulture object with locale related settings.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>code</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The culture code (en-GB for example).</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>monthList</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A list of month names, from January to December.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>shortMonthList</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A list of short month names, from Jan to Dec.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>dayOfWeekList</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A list of days of the week names, from Sunday to Saturday.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>shortDayOfWeekList</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A list of short of days of the week names. from Sun to Sat.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ordinalDayList</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A list of the st,nd,rd,th parts of the day of the month. Must be 31 items long and in lower case.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>am</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The AM text.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>pm</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The PM text.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>longDateTime</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The long date time format.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>shortDateTime</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The short date time format.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>longDate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The long date format.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>shortDate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The short date format.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>longTime</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The long time format.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>shortTime</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The short time format.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>firstDayOfWeek</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#zbDayOfWeek">zbDayOfWeek</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The first day of the week.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id=".default"><span class="type-signature">(static) </span>default<span class="type-signature"> :<a href="zbCulture.html">zbCulture</a></span></h4>
+
+
+
+
+<div class="description">
+    Gets the default culture object.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="zbCulture.html">zbCulture</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".default"><span class="type-signature">(static) </span>default<span class="type-signature"> :string</span></h4>
+
+
+
+
+<div class="description">
+    Set the default culture.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="am"><span class="type-signature"></span>am<span class="type-signature"> :string</span></h4>
+
+
+
+
+<div class="description">
+    Gets the AM text.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="code"><span class="type-signature"></span>code<span class="type-signature"> :string</span></h4>
+
+
+
+
+<div class="description">
+    Gets the culture's code. This is normally formatted as lanuage-country.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="dayOfWeekList"><span class="type-signature"></span>dayOfWeekList<span class="type-signature"> :Array.&lt;string></span></h4>
+
+
+
+
+<div class="description">
+    Gets the list of day of week names. Sunday is item 0, Saturday is item 6.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;string></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="firstDayOfWeek"><span class="type-signature"></span>firstDayOfWeek<span class="type-signature"> :<a href="global.html#zbDayOfWeek">zbDayOfWeek</a></span></h4>
+
+
+
+
+<div class="description">
+    Gets the first day of the week.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="global.html#zbDayOfWeek">zbDayOfWeek</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="longDate"><span class="type-signature"></span>longDate<span class="type-signature"> :string</span></h4>
+
+
+
+
+<div class="description">
+    Gets the format of the long date.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="longDateTime"><span class="type-signature"></span>longDateTime<span class="type-signature"> :string</span></h4>
+
+
+
+
+<div class="description">
+    Gets the format of the long date time.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="longTime"><span class="type-signature"></span>longTime<span class="type-signature"> :string</span></h4>
+
+
+
+
+<div class="description">
+    Gets the format of the long time.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="monthList"><span class="type-signature"></span>monthList<span class="type-signature"> :Array.&lt;string></span></h4>
+
+
+
+
+<div class="description">
+    Gets the list of month names. January is item 0, December is item 11.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;string></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="ordinalDayList"><span class="type-signature"></span>ordinalDayList<span class="type-signature"> :Array.&lt;string></span></h4>
+
+
+
+
+<div class="description">
+    Gets the list of the st,nd,rd,th parts of the day of the month.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;string></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="pm"><span class="type-signature"></span>pm<span class="type-signature"> :string</span></h4>
+
+
+
+
+<div class="description">
+    Gets the PM text.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="shortDate"><span class="type-signature"></span>shortDate<span class="type-signature"> :string</span></h4>
+
+
+
+
+<div class="description">
+    Gets the format of the short date.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="shortDateTime"><span class="type-signature"></span>shortDateTime<span class="type-signature"> :string</span></h4>
+
+
+
+
+<div class="description">
+    Gets the format of the short date time.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="shortDayOfWeekList"><span class="type-signature"></span>shortDayOfWeekList<span class="type-signature"> :Array.&lt;string></span></h4>
+
+
+
+
+<div class="description">
+    Gets the list of short day of week names. Sun is item 0, Sat is item 6.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;string></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="shortMonthList"><span class="type-signature"></span>shortMonthList<span class="type-signature"> :Array.&lt;string></span></h4>
+
+
+
+
+<div class="description">
+    Gets the list of short month names. Jan is item 0, Dec is item 11.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;string></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="shortTime"><span class="type-signature"></span>shortTime<span class="type-signature"> :string</span></h4>
+
+
+
+
+<div class="description">
+    Gets the format of the short time.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".add"><span class="type-signature">(static) </span>add<span class="signature">(culture)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Add the given culture to the list of available cultures that can be used.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>culture</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="zbCulture.html">zbCulture</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The culture to add.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".find"><span class="type-signature">(static) </span>find<span class="signature">(code)</span><span class="type-signature"> &rarr; {<a href="zbCulture.html">zbCulture</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Finds the culture from the to the list of available cultures that match the given code.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>code</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The culture's code to search with.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The found culture, or null if not found.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="zbCulture.html">zbCulture</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".formatDate"><span class="type-signature">(static) </span>formatDate<span class="signature">(format, culture, date)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Build a string using the given date and date format.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>format</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The format the date should look like.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>culture</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="zbCulture.html">zbCulture</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The culture to format the date against.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>date</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="zbDate.html">zbDate</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The date to format as test.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The formatted date text.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="zbCalendar.html">zbCalendar</a></li><li><a href="zbCulture.html">zbCulture</a></li><li><a href="zbDate.html">zbDate</a></li><li><a href="zbDayCalendar.html">zbDayCalendar</a></li><li><a href="zbValidate.html">zbValidate</a></li></ul><h3>Global</h3><ul><li><a href="global.html#zbDayOfWeek">zbDayOfWeek</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Wed Apr 01 2020 10:19:59 GMT+0100 (GMT Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

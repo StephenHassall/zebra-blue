@@ -1,0 +1,31 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "google"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2018
+    },
+    "rules": {
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "max-len": ["error", {"ignoreComments": true, "code": 160}],
+        "new-cap": ["error", { "newIsCap": false }],
+        "comma-dangle": ["error", "never"]
+    },
+    "overrides": [
+        {
+          "files": [ "./test/**/*.js" ],
+          "rules": {
+            "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
+            "block-spacing": ["error", "always"]
+          }
+        }
+    ]    
+}

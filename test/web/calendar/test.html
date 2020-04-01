@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <title>Test zb-day-calendar web compontent</title>
+  <!-- ZB Core Library -->
+  <script type="application/javascript" charset="utf-8" src="../../../src/core/validate.js"></script>
+  <script type="application/javascript" charset="utf-8" src="../../../src/core/dayOfWeek.js"></script>
+  <script type="application/javascript" charset="utf-8" src="../../../src/core/culture.js"></script>
+  <script type="application/javascript" charset="utf-8" src="../../../src/core/locale/en-GB.js"></script>
+  <script type="application/javascript" charset="utf-8" src="../../../src/core/locale/en-US.js"></script>  
+  <script type="application/javascript" charset="utf-8" src="../../../src/core/locale/es-ES.js"></script>
+  <script type="application/javascript" charset="utf-8" src="../../../src/core/locale/fr-FR.js"></script>
+  <script type="application/javascript" charset="utf-8" src="../../../src/core/date.js"></script>
+
+  <!-- ZB Calendar -->
+  <script type="application/javascript" charset="utf-8" src="../../../src/web/calendar/calendar.js"></script>
+</html>
+<body>
+  <!-- ZB Day Calendar 1 (defaults) -->
+  <p>Defaults</p>
+  <zb-calendar id="zbCalendar1"></zb-calendar>
+
+  <br><br>
+
+  <!-- ZB Calendar 2 (value, culture, first day, highlight days and highlight attributes set) -->
+  <p>Value, culture, first day, highlight days and highlight attributes set, and styles</p>
+  <zb-calendar
+    id="zbCalendar2"
+    value="1999-12-01"
+    culture="fr-FR"
+    first-day="sunday"
+    highlight-days="friday,saturday"
+    highlight
+    style="
+      width: 400px;
+      height: 400px;
+      font-size: normal;
+      font-family: Arial, Helvetica, sans-serif;"></zb-calendar>
+
+  <br><br>
+
+  <button id="test1">Change Date</button>
+  <button id="test2">Change Culture</button>
+  <button id="test3">Change First Day of Week</button>
+  <button id="test4">Change HighlightDays</button>
+  <button id="test5">Turn Highlight OFF</button>
+  <button id="test6">Turn Highlight ON</button>
+
+  <script>
+    // Get zbCalendar elements
+    let zbCalendar1Element = document.getElementById("zbCalendar1");
+    let zbCalendar2Element = document.getElementById("zbCalendar2");
+
+    // Get test buttons
+    var test1Element = document.getElementById("test1");
+    var test2Element = document.getElementById("test2");
+    var test3Element = document.getElementById("test3");
+    var test4Element = document.getElementById("test4");
+    var test5Element = document.getElementById("test5");
+    var test6Element = document.getElementById("test6");
+
+    // Add test 1 onclick event (change date)
+    test1Element.onclick = function () {      
+      // Reset date
+      zbCalendar1Element.value = '2020-09-28';
+      zbCalendar2Element.value = '2020-09-28';
+    }
+
+    // Add test 2 onclick event (change culture)
+    test2Element.onclick = function () {      
+      // Reset culture
+      zbCalendar1Element.culture = 'es-ES';
+      zbCalendar2Element.culture = 'es-ES';
+    }
+
+    // Add test 3 onclick event (change first day of week)
+    test3Element.onclick = function () {      
+      // Reset first day of week
+      zbCalendar1Element.firstDay = 'tuesday';
+      zbCalendar2Element.firstDay = 'tuesday';
+    }
+
+    // Add test 4 onclick event (change highlight days)
+    test4Element.onclick = function () {      
+      // Reset highlight days
+      zbCalendar1Element.highlightDays = 'tuesday,thursday';
+      zbCalendar2Element.highlightDays = 'tuesday,thursday';
+    }
+
+    // Add test 5 onclick event (turn highlight off)
+    test5Element.onclick = function () {      
+      // Reset highlight
+      zbCalendar1Element.highlight = false;
+      zbCalendar2Element.highlight = false;
+    }
+    
+    // Add test 6 onclick event (turn highlight on)
+    test6Element.onclick = function () {      
+      // Reset highlight
+      zbCalendar1Element.highlight = true;
+      zbCalendar2Element.highlight = true;
+    }
+  </script>
+
+</body>
