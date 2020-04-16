@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <title>Test zb-digit-clock web compontent</title>
+  <!-- ZB Core Library -->
+  <script type="application/javascript" charset="utf-8" src="../../../src/core/internal/dateTimeTools.js"></script>
+  <script type="application/javascript" charset="utf-8" src="../../../src/core/validate.js"></script>
+  <script type="application/javascript" charset="utf-8" src="../../../src/core/time.js"></script>
+
+  <!-- ZB Digit Clock -->
+  <script type="application/javascript" charset="utf-8" src="../../../src/web/digitalClock/digitalClock.js"></script>
+</html>
+<body>
+  <!-- ZB Digital Clock 1 (defaults) -->
+  <p>Defaults</p>
+  <zb-digital-clock id="zbDigitClock1"></zb-digital-clock>
+
+  <br><br>
+
+  <!-- ZB Digital Clock 2 (show24HourClock) -->
+  <p>Show 24 Hour Clock</p>
+  <zb-digital-clock show24hour></zb-digital-clock>
+
+  <br><br>
+
+  <!-- ZB Digital Clock 3 large -->
+  <p>Large Clock</p>
+  <zb-digital-clock style="width: 560px; height: 200px; font-size: x-large;"></zb-digital-clock>
+
+  <br><br><br>
+
+  <button id="test1">24 Hour Clock</button>
+  <button id="test2">12 Hour Clock</button>
+
+  <script>
+    // Get zbDigitalClock element
+    let zbDigitalClockElement = document.getElementById("zbDigitClock1");
+
+    // Get test buttons
+    var test1Element = document.getElementById("test1");
+    var test2Element = document.getElementById("test2");
+
+    // Add test 1 onclick event
+    test1Element.onclick = function () {      
+      // Set 24 hour clock
+      zbDigitalClockElement.show24HourClock = true;
+    }
+
+    // Add test 2 onclick event
+    test2Element.onclick = function () {      
+      // Set 12 hour clock
+      zbDigitalClockElement.show24HourClock = false;
+    }
+  </script>
+
+</body>

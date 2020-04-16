@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: zbDayCalendar</title>
+    <title>JSDoc: Class: zbDigitalClock</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: zbDayCalendar</h1>
+    <h1 class="page-title">Class: zbDigitalClock</h1>
 
     
 
@@ -28,9 +28,9 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>zbDayCalendar<span class="signature">()</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>zbDigitalClock<span class="signature">()</span><span class="type-signature"></span></h2>
         
-            <div class="class-description">Day calendar web component.</div>
+            <div class="class-description">Digital clock web component.</div>
         
     
 </header>
@@ -45,7 +45,7 @@
     
 
     
-    <h4 class="name" id="zbDayCalendar"><span class="type-signature"></span>new zbDayCalendar<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="zbDigitalClock"><span class="type-signature"></span>new zbDigitalClock<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
@@ -53,7 +53,7 @@
 
 
 <div class="description">
-    Create a new zbDayCalendar object.
+    Create a new zbDigitalClock object.
 </div>
 
 
@@ -200,13 +200,13 @@ of attributes to monitor.
 
         
             
-<h4 class="name" id="culture"><span class="type-signature"></span>culture<span class="type-signature"> :string</span></h4>
+<h4 class="name" id="show24HourClock"><span class="type-signature"></span>show24HourClock<span class="type-signature"> :boolean</span></h4>
 
 
 
 
 <div class="description">
-    Gets the culture used when showning the date.
+    Sets if we are showing the 24 hour clock.
 </div>
 
 
@@ -215,7 +215,7 @@ of attributes to monitor.
     <ul>
         <li>
             
-<span class="param-type">string</span>
+<span class="param-type">boolean</span>
 
 
         </li>
@@ -267,13 +267,13 @@ of attributes to monitor.
 
         
             
-<h4 class="name" id="culture"><span class="type-signature"></span>culture<span class="type-signature"> :string</span></h4>
+<h4 class="name" id="show24HourClock"><span class="type-signature"></span>show24HourClock<span class="type-signature"> :boolean</span></h4>
 
 
 
 
 <div class="description">
-    Sets the culture to use when showing the date.
+    Gets if we are showing the 24 hour clock (or the 12 hour clock).
 </div>
 
 
@@ -282,141 +282,7 @@ of attributes to monitor.
     <ul>
         <li>
             
-<span class="param-type">string</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="value"><span class="type-signature"></span>value<span class="type-signature"> :string</span></h4>
-
-
-
-
-<div class="description">
-    The date to show. The value must be in YYYY-MM-DD format.
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">string</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="value"><span class="type-signature"></span>value<span class="type-signature"> :string</span></h4>
-
-
-
-
-<div class="description">
-    Gets the value of the date currently set.
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">string</span>
+<span class="param-type">boolean</span>
 
 
         </li>
@@ -471,6 +337,370 @@ of attributes to monitor.
 
     
         <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="_createAmpm"><span class="type-signature"></span>_createAmpm<span class="signature">()</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Create the ampm DOM elements.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    AMPM DOM element.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">HTMLElement</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="_createDigit"><span class="type-signature"></span>_createDigit<span class="signature">(digitIndex)</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Create the digit DOM elements.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>digitIndex</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The digit index to create (0 to 3).</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Digit DOM element.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">HTMLElement</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="_createDots"><span class="type-signature"></span>_createDots<span class="signature">()</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Create the dot DOM elements.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Dots DOM element.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">HTMLElement</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
 
         
             
@@ -665,6 +895,89 @@ of attributes to monitor.
 
 <div class="description">
     Override connectedCallback function to handle when component is attached into the DOM.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="disconnectedCallback"><span class="type-signature"></span>disconnectedCallback<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Override disconnectedCallback function to handle when component is detached from the DOM.
 </div>
 
 

@@ -385,7 +385,7 @@ class zbCalendar extends HTMLElement {
         if (name === 'culture' || name === 'first-day') {
             // Update both the grid and the month
             this._updateGrid();
-            this._updateMonth();            
+            this._updateMonth();
         }
     }
 

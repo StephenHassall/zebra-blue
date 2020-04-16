@@ -15,7 +15,12 @@ class zbTestRun {
         const testList = [
             zbValidateTest,
             zbCultureTest,
-            zbDateTest
+            zbDateTimeToolsTest,
+            zbDateTest,
+            zbTimeTest,
+            zbDateTimeTest,
+            zbFormatToolsTest,
+            zbTimeSpanTest
         ];
 
         // For each test

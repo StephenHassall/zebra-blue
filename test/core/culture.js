@@ -16,7 +16,6 @@ class zbCultureTest {
         if (zbCultureTest._add() === false) { console.log('zbCultureTest.add FAILED'); return; }
         if (zbCultureTest._find() === false) { console.log('zbCultureTest.find FAILED'); return; }
         if (zbCultureTest._default() === false) { console.log('zbCultureTest.default FAILED'); return; }
-        if (zbCultureTest._formatDate() === false) { console.log('zbCultureTest.formatDate FAILED'); return; }
     }
 
     /**
@@ -56,7 +55,7 @@ class zbCultureTest {
         firstDayOfWeek) {
         try {
             // Create a zbCulture object with the invalid parameters
-            const culture = new zbCulture(
+            new zbCulture(
                 code,
                 monthList,
                 shortMonthList,
@@ -74,50 +73,6 @@ class zbCultureTest {
                 firstDayOfWeek);
         } catch (error) {
             // There must have been an error, so we have passed this test
-            return true;
-        }
-
-        // Return failed
-        return false;
-    }
-
-    /**
-     * Test the given static function with the given parameter to make sure it fails as excepted.
-     * @param {function} callFunction The function to call.
-     * @param {*} parameter The parameter to be passed to the function.
-     * @return {boolean} True is passed, False if error found.
-     * @private
-     * @static
-     */
-    static _invalidStaticParameter(callFunction, parameter) {
-        try {
-            // Call the function with the parameter
-            callFunction(parameter);
-        } catch (error) {
-            // Return good, there was an expection
-            return true;
-        }
-
-        // Return failed
-        return false;
-    }
-
-    /**
-     * Test the given function with the given parameters to make sure it fails as excepted.
-     * @param {function} callFunction The function to call.
-     * @param {*} parameter1 The first parameter to be passed to the function.
-     * @param {*} parameter2 The second parameter to be passed to the function.
-     * @param {*} parameter3 The third parameter to be passed to the function.
-     * @return {boolean} True is passed, False if error found.
-     * @private
-     * @static
-     */
-    static _invalidStaticParameter3(callFunction, parameter1, parameter2, parameter3) {
-        try {
-            // Call the function with the parameters
-            callFunction(parameter1, parameter2, parameter3);
-        } catch (error) {
-            // Return good, there was an expection
             return true;
         }
 
@@ -276,15 +231,15 @@ class zbCultureTest {
         );
 
         // Test invalid parameters
-        if (zbCultureTest._invalidStaticParameter(zbCulture.add, undefined) === false) return false;
-        if (zbCultureTest._invalidStaticParameter(zbCulture.add, null) === false) return false;
-        if (zbCultureTest._invalidStaticParameter(zbCulture.add, 123) === false) return false;
-        if (zbCultureTest._invalidStaticParameter(zbCulture.add, 'string') === false) return false;
-        if (zbCultureTest._invalidStaticParameter(zbCulture.add, true) === false) return false;
-        if (zbCultureTest._invalidStaticParameter(zbCulture.add, false) === false) return false;
-        if (zbCultureTest._invalidStaticParameter(zbCulture.add, {}) === false) return false;
-        if (zbCultureTest._invalidStaticParameter(zbCulture.add, []) === false) return false;
-        if (zbCultureTest._invalidStaticParameter(zbCulture.add, function() {}) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbCulture.add, undefined) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbCulture.add, null) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbCulture.add, 123) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbCulture.add, 'string') === false) return false;
+        if (zbTestException.invalidStaticParameter(zbCulture.add, true) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbCulture.add, false) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbCulture.add, {}) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbCulture.add, []) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbCulture.add, function() {}) === false) return false;
 
         // Test valid parameters
         try {
@@ -314,14 +269,14 @@ class zbCultureTest {
      */
     static _find() {
         // Test invalid parameters
-        if (zbCultureTest._invalidStaticParameter(zbCulture.find, undefined) === false) return false;
-        if (zbCultureTest._invalidStaticParameter(zbCulture.find, null) === false) return false;
-        if (zbCultureTest._invalidStaticParameter(zbCulture.find, 123) === false) return false;
-        if (zbCultureTest._invalidStaticParameter(zbCulture.find, true) === false) return false;
-        if (zbCultureTest._invalidStaticParameter(zbCulture.find, false) === false) return false;
-        if (zbCultureTest._invalidStaticParameter(zbCulture.find, {}) === false) return false;
-        if (zbCultureTest._invalidStaticParameter(zbCulture.find, []) === false) return false;
-        if (zbCultureTest._invalidStaticParameter(zbCulture.find, function() {}) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbCulture.find, undefined) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbCulture.find, null) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbCulture.find, 123) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbCulture.find, true) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbCulture.find, false) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbCulture.find, {}) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbCulture.find, []) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbCulture.find, function() {}) === false) return false;
 
         // Test valid parameters
         try {
@@ -421,148 +376,8 @@ class zbCultureTest {
             return false;
         }
 
-        // Return passed
-        return true;
-    }
-
-    /**
-     * Perform the format date tests.
-     * @return {boolean} True is passed, False if error found.
-     * @private
-     * @static
-     */
-    static _formatDate() {
-        // Get culture
-        const culture = zbCulture.find('en-GB');
-
-        // Set date
-        const date = new zbDate(2004, 3, 2);
-
-        // Test invalid parameters (format)
-        if (zbCultureTest._invalidStaticParameter3(zbCulture.formatDate, undefined, culture, date) === false) return false;
-        if (zbCultureTest._invalidStaticParameter3(zbCulture.formatDate, null, culture, date) === false) return false;
-        if (zbCultureTest._invalidStaticParameter3(zbCulture.formatDate, 123, culture, date) === false) return false;
-        if (zbCultureTest._invalidStaticParameter3(zbCulture.formatDate, true, culture, date) === false) return false;
-        if (zbCultureTest._invalidStaticParameter3(zbCulture.formatDate, false, culture, date) === false) return false;
-        if (zbCultureTest._invalidStaticParameter3(zbCulture.formatDate, {}, culture, date) === false) return false;
-        if (zbCultureTest._invalidStaticParameter3(zbCulture.formatDate, [], culture, date) === false) return false;
-        if (zbCultureTest._invalidStaticParameter3(zbCulture.formatDate, function() {}, culture, date) === false) return false;
-
-        // Test invalid parameters (culture)
-        if (zbCultureTest._invalidStaticParameter3(zbCulture.formatDate, 'dddd', undefined, date) === false) return false;
-        if (zbCultureTest._invalidStaticParameter3(zbCulture.formatDate, 'dddd', null, date) === false) return false;
-        if (zbCultureTest._invalidStaticParameter3(zbCulture.formatDate, 'dddd', 123, date) === false) return false;
-        if (zbCultureTest._invalidStaticParameter3(zbCulture.formatDate, 'dddd', true, date) === false) return false;
-        if (zbCultureTest._invalidStaticParameter3(zbCulture.formatDate, 'dddd', false, date) === false) return false;
-        if (zbCultureTest._invalidStaticParameter3(zbCulture.formatDate, 'dddd', {}, date) === false) return false;
-        if (zbCultureTest._invalidStaticParameter3(zbCulture.formatDate, 'dddd', [], date) === false) return false;
-        if (zbCultureTest._invalidStaticParameter3(zbCulture.formatDate, 'dddd', function() {}, date) === false) return false;
-
-        // Test invalid parameters (date)
-        if (zbCultureTest._invalidStaticParameter3(zbCulture.formatDate, 'dddd', culture, undefined) === false) return false;
-        if (zbCultureTest._invalidStaticParameter3(zbCulture.formatDate, 'dddd', culture, null) === false) return false;
-        if (zbCultureTest._invalidStaticParameter3(zbCulture.formatDate, 'dddd', culture, 123) === false) return false;
-        if (zbCultureTest._invalidStaticParameter3(zbCulture.formatDate, 'dddd', culture, true) === false) return false;
-        if (zbCultureTest._invalidStaticParameter3(zbCulture.formatDate, 'dddd', culture, false) === false) return false;
-        if (zbCultureTest._invalidStaticParameter3(zbCulture.formatDate, 'dddd', culture, {}) === false) return false;
-        if (zbCultureTest._invalidStaticParameter3(zbCulture.formatDate, 'dddd', culture, []) === false) return false;
-        if (zbCultureTest._invalidStaticParameter3(zbCulture.formatDate, 'dddd', culture, function() {}) === false) return false;
-
-        // Set second date
-        const date2 = new zbDate(2019, 12, 23);
-
-        try {
-            // Years 2004-03-02
-            let yearText = zbCulture.formatDate('yyyy', culture, date);
-            if (yearText !== '2004') return false;
-            yearText = zbCulture.formatDate('yy', culture, date);
-            if (yearText !== '04') return false;
-            yearText = zbCulture.formatDate('y', culture, date);
-            if (yearText !== '4') return false;
-
-            // Years 2019-12-23
-            yearText = zbCulture.formatDate('yyyy', culture, date2);
-            if (yearText !== '2019') return false;
-            yearText = zbCulture.formatDate('yy', culture, date2);
-            if (yearText !== '19') return false;
-            yearText = zbCulture.formatDate('y', culture, date2);
-            if (yearText !== '19') return false;
-
-            // Month 2004-03-02
-            let monthText = zbCulture.formatDate('MMMM', culture, date);
-            if (monthText !== 'March') return false;
-            monthText = zbCulture.formatDate('MMM', culture, date);
-            if (monthText !== 'Mar') return false;
-            monthText = zbCulture.formatDate('MM', culture, date);
-            if (monthText !== '03') return false;
-            monthText = zbCulture.formatDate('M', culture, date);
-            if (monthText !== '3') return false;
-
-            // Month 2019-12-23
-            monthText = zbCulture.formatDate('MMMM', culture, date2);
-            if (monthText !== 'December') return false;
-            monthText = zbCulture.formatDate('MMM', culture, date2);
-            if (monthText !== 'Dec') return false;
-            monthText = zbCulture.formatDate('MM', culture, date2);
-            if (monthText !== '12') return false;
-            monthText = zbCulture.formatDate('M', culture, date2);
-            if (monthText !== '12') return false;
-
-            // Day 2004-03-02
-            let dayText = zbCulture.formatDate('dddd', culture, date);
-            if (dayText !== 'Tuesday') return false;
-            dayText = zbCulture.formatDate('ddd', culture, date);
-            if (dayText !== 'Tue') return false;
-            dayText = zbCulture.formatDate('dd', culture, date);
-            if (dayText !== '02') return false;
-            dayText = zbCulture.formatDate('d', culture, date);
-            if (dayText !== '2') return false;
-
-            // Day 2019-12-23
-            dayText = zbCulture.formatDate('dddd', culture, date2);
-            if (dayText !== 'Monday') return false;
-            dayText = zbCulture.formatDate('ddd', culture, date2);
-            if (dayText !== 'Mon') return false;
-            dayText = zbCulture.formatDate('dd', culture, date2);
-            if (dayText !== '23') return false;
-            dayText = zbCulture.formatDate('d', culture, date2);
-            if (dayText !== '23') return false;
-
-            // R/r 2004-03-02
-            let rText = zbCulture.formatDate('r', culture, date);
-            if (rText !== 'nd') return false;
-            rText = zbCulture.formatDate('R', culture, date);
-            if (rText !== 'ND') return false;
-
-            // R/r 2019-12-23
-            rText = zbCulture.formatDate('r', culture, date2);
-            if (rText !== 'rd') return false;
-            rText = zbCulture.formatDate('R', culture, date2);
-            if (rText !== 'RD') return false;
-
-            // Escape characters
-            let escapeText = zbCulture.formatDate('/y', culture, date);
-            if (escapeText !== 'y') return false;
-            escapeText = zbCulture.formatDate('/M', culture, date);
-            if (escapeText !== 'M') return false;
-            escapeText = zbCulture.formatDate('/d', culture, date);
-            if (escapeText !== 'd') return false;
-            escapeText = zbCulture.formatDate('/r', culture, date);
-            if (escapeText !== 'r') return false;
-            escapeText = zbCulture.formatDate('/R', culture, date);
-            if (escapeText !== 'R') return false;
-
-            // Long date 2004-03-02 ('dddd, d MMMM yyyy')
-            let longDate = zbCulture.formatDate(culture.longDate, culture, date);
-            if (longDate !== 'Tuesday, 2 March 2004') return false;
-
-            // Long date 2019-12-23 ('dddd, d MMMM yyyy')
-            longDate = zbCulture.formatDate(culture.longDate, culture, date2);
-            if (longDate !== 'Monday, 23 December 2019') return false;
-        } catch (error) {
-            // Return failed
-            return false;
-        }
+        // Reset default for testing other parts
+        zbCulture.default = zbCulture.find('en-US');
 
         // Return passed
         return true;

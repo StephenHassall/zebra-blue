@@ -19,84 +19,17 @@ class zbDateTest {
         if (zbDateTest._addDays() === false) { console.log('zbDateTest.addDays FAILED'); return; }
         if (zbDateTest._addMonths() === false) { console.log('zbDateTest.addMonths FAILED'); return; }
         if (zbDateTest._addYears() === false) { console.log('zbDateTest.addYears FAILED'); return; }
+        if (zbDateTest._format() === false) { console.log('zbDateTest.format FAILED'); return; }
         if (zbDateTest._isLeapYear() === false) { console.log('zbDateTest.isLeapYear FAILED'); return; }
         if (zbDateTest._getDaysInMonth() === false) { console.log('zbDateTest.getDaysInMonth FAILED'); return; }
         if (zbDateTest._getDaysInYear() === false) { console.log('zbDateTest.getDaysInYear FAILED'); return; }
         if (zbDateTest._getToday() === false) { console.log('zbDateTest.getToday FAILED'); return; }
         if (zbDateTest._fromString() === false) { console.log('zbDateTest.fromString FAILED'); return; }
         if (zbDateTest._compare() === false) { console.log('zbDateTest.compare FAILED'); return; }
-        if (zbDateTest._dateToDays() === false) { return; }
-        if (zbDateTest._daysToDate() === false) { return; }
-        if (zbDateTest._dateToDaysToDate() === false) { console.log('zbDateTest._dateToDaysToDate FAILED'); return; }
     }
 
     /**
-     * Test the given static function with the given parameter to make sure it fails as excepted.
-     * @param {function} callFunction The function to call.
-     * @param {*} parameter The parameter to be passed to the function.
-     * @return {boolean} True is passed, False if error found.
-     * @private
-     * @static
-     */
-    static _invalidStaticParameter(callFunction, parameter) {
-        try {
-            // Call the function with the parameter
-            callFunction(parameter);
-        } catch (error) {
-            // Return good, there was an expection
-            return true;
-        }
-
-        // Return failed
-        return false;
-    }
-
-    /**
-     * Test the given static function with the given parameters to make sure it fails as excepted.
-     * @param {function} callFunction The function to call.
-     * @param {*} parameter1 The first parameter to be passed to the function.
-     * @param {*} parameter2 The second parameter to be passed to the function.
-     * @return {boolean} True is passed, False if error found.
-     * @private
-     * @static
-     */
-    static _invalidStaticParameter2(callFunction, parameter1, parameter2) {
-        try {
-            // Call the function with the parameter
-            callFunction(parameter1, parameter2);
-        } catch (error) {
-            // Return good, there was an expection
-            return true;
-        }
-
-        // Return failed
-        return false;
-    }
-
-    /**
-     * Test the given object's function with the given parameter to make sure it fails as excepted.
-     * @param {zbDate} dateObject The date object we are going to call a function in.
-     * @param {string} functionName The name of the function to call.
-     * @param {*} parameter The parameter to be passed to the function.
-     * @return {boolean} True is passed, False if error found.
-     * @private
-     * @static
-     */
-    static _invalidObjectParameter(dateObject, functionName, parameter) {
-        try {
-            // Call the function with the parameter
-            dateObject[functionName](parameter);
-        } catch (error) {
-            // Return good, there was an expection
-            return true;
-        }
-
-        // Return failed
-        return false;
-    }
-
-    /**
-     * Test the zbData constructor with invalid parameters.
+     * Test the zbDate constructor with invalid parameters.
      * @param {number} year The year part of the date.
      * @param {number} month The month part of the date.
      * @param {number} day The day part of the date.
@@ -107,7 +40,7 @@ class zbDateTest {
     static _invalidConstructor(year, month, day) {
         try {
             // Create a zbDate object with the invalid parameters
-            const date = new zbDate(year, month, day);
+            new zbDate(year, month, day);
         } catch (error) {
             // There must have been an error, so we have passed this test
             return true;
@@ -326,14 +259,14 @@ class zbDateTest {
         let date = new zbDate(2020, 3, 5);
 
         // Test invalid parameters
-        if (zbDateTest._invalidObjectParameter(date, 'addDays', undefined) === false) return false;
-        if (zbDateTest._invalidObjectParameter(date, 'addDays', null) === false) return false;
-        if (zbDateTest._invalidObjectParameter(date, 'addDays', 'string') === false) return false;
-        if (zbDateTest._invalidObjectParameter(date, 'addDays', true) === false) return false;
-        if (zbDateTest._invalidObjectParameter(date, 'addDays', false) === false) return false;
-        if (zbDateTest._invalidObjectParameter(date, 'addDays', {}) === false) return false;
-        if (zbDateTest._invalidObjectParameter(date, 'addDays', []) === false) return false;
-        if (zbDateTest._invalidObjectParameter(date, 'addDays', function() {}) === false) return false;
+        if (zbTestException.invalidObjectParameter(date, 'addDays', undefined) === false) return false;
+        if (zbTestException.invalidObjectParameter(date, 'addDays', null) === false) return false;
+        if (zbTestException.invalidObjectParameter(date, 'addDays', 'string') === false) return false;
+        if (zbTestException.invalidObjectParameter(date, 'addDays', true) === false) return false;
+        if (zbTestException.invalidObjectParameter(date, 'addDays', false) === false) return false;
+        if (zbTestException.invalidObjectParameter(date, 'addDays', {}) === false) return false;
+        if (zbTestException.invalidObjectParameter(date, 'addDays', []) === false) return false;
+        if (zbTestException.invalidObjectParameter(date, 'addDays', function() {}) === false) return false;
 
         // Test invalid parameter values
         if (date.addDays(-1000000) !== null) return false;
@@ -341,35 +274,35 @@ class zbDateTest {
 
         // Test leap year
         date = new zbDate(2020, 2, 29).addDays(1);
-        if (date.year !== 2020 && date.month !== 3 && date.day !== 1) return false;
+        if (date.year !== 2020 || date.month !== 3 || date.day !== 1) return false;
         date = new zbDate(2020, 2, 28).addDays(1);
-        if (date.year !== 2020 && date.month !== 2 && date.day !== 29) return false;
+        if (date.year !== 2020 || date.month !== 2 || date.day !== 29) return false;
         date = new zbDate(2019, 2, 28).addDays(1);
-        if (date.year !== 2019 && date.month !== 3 && date.day !== 1) return false;
+        if (date.year !== 2019 || date.month !== 3 || date.day !== 1) return false;
         date = new zbDate(2020, 3, 1).addDays(-1);
-        if (date.year !== 2020 && date.month !== 2 && date.day !== 29) return false;
+        if (date.year !== 2020 || date.month !== 2 || date.day !== 29) return false;
         date = new zbDate(2019, 3, 1).addDays(-1);
-        if (date.year !== 2019 && date.month !== 2 && date.day !== 28) return false;
+        if (date.year !== 2019 || date.month !== 2 || date.day !== 28) return false;
 
         // Test add zero
         date = new zbDate(2020, 2, 29).addDays(0);
-        if (date.year !== 2020 && date.month !== 2 && date.day !== 29) return false;
+        if (date.year !== 2020 || date.month !== 2 || date.day !== 29) return false;
 
         // Test add
         date = new zbDate(2020, 2, 1).addDays(10);
-        if (date.year !== 2020 && date.month !== 2 && date.day !== 11) return false;
+        if (date.year !== 2020 || date.month !== 2 || date.day !== 11) return false;
         date = new zbDate(2020, 2, 1).addDays(40);
-        if (date.year !== 2020 && date.month !== 3 && date.day !== 12) return false;
+        if (date.year !== 2020 || date.month !== 3 || date.day !== 12) return false;
 
         // Test minus
         date = new zbDate(2020, 2, 10).addDays(-1);
-        if (date.year !== 2020 && date.month !== 2 && date.day !== 9) return false;
+        if (date.year !== 2020 || date.month !== 2 || date.day !== 9) return false;
         date = new zbDate(2020, 1, 1).addDays(-1);
-        if (date.year !== 2019 && date.month !== 12 && date.day !== 31) return false;
+        if (date.year !== 2019 || date.month !== 12 || date.day !== 31) return false;
         date = new zbDate(2020, 2, 28).addDays(-10);
-        if (date.year !== 2020 && date.month !== 2 && date.day !== 18) return false;
+        if (date.year !== 2020 || date.month !== 2 || date.day !== 18) return false;
         date = new zbDate(2020, 2, 28).addDays(-40);
-        if (date.year !== 2020 && date.month !== 1 && date.day !== 19) return false;
+        if (date.year !== 2020 || date.month !== 1 || date.day !== 19) return false;
 
         // Return passed
         return true;
@@ -386,14 +319,14 @@ class zbDateTest {
         let date = new zbDate(2020, 3, 5);
 
         // Test invalid parameters
-        if (zbDateTest._invalidObjectParameter(date, 'addMonths', undefined) === false) return false;
-        if (zbDateTest._invalidObjectParameter(date, 'addMonths', null) === false) return false;
-        if (zbDateTest._invalidObjectParameter(date, 'addMonths', 'string') === false) return false;
-        if (zbDateTest._invalidObjectParameter(date, 'addMonths', true) === false) return false;
-        if (zbDateTest._invalidObjectParameter(date, 'addMonths', false) === false) return false;
-        if (zbDateTest._invalidObjectParameter(date, 'addMonths', {}) === false) return false;
-        if (zbDateTest._invalidObjectParameter(date, 'addMonths', []) === false) return false;
-        if (zbDateTest._invalidObjectParameter(date, 'addMonths', function() {}) === false) return false;
+        if (zbTestException.invalidObjectParameter(date, 'addMonths', undefined) === false) return false;
+        if (zbTestException.invalidObjectParameter(date, 'addMonths', null) === false) return false;
+        if (zbTestException.invalidObjectParameter(date, 'addMonths', 'string') === false) return false;
+        if (zbTestException.invalidObjectParameter(date, 'addMonths', true) === false) return false;
+        if (zbTestException.invalidObjectParameter(date, 'addMonths', false) === false) return false;
+        if (zbTestException.invalidObjectParameter(date, 'addMonths', {}) === false) return false;
+        if (zbTestException.invalidObjectParameter(date, 'addMonths', []) === false) return false;
+        if (zbTestException.invalidObjectParameter(date, 'addMonths', function() {}) === false) return false;
 
         // Test invalid parameter values
         if (date.addMonths(-100000) !== null) return false;
@@ -401,33 +334,33 @@ class zbDateTest {
 
         // Test leap year
         date = new zbDate(2020, 1, 31).addMonths(1);
-        if (date.year !== 2020 && date.month !== 2 && date.day !== 29) return false;
+        if (date.year !== 2020 || date.month !== 2 || date.day !== 29) return false;
         date = new zbDate(2019, 1, 31).addMonths(1);
-        if (date.year !== 2019 && date.month !== 2 && date.day !== 28) return false;
+        if (date.year !== 2019 || date.month !== 2 || date.day !== 28) return false;
         date = new zbDate(2020, 3, 31).addMonths(-1);
-        if (date.year !== 2020 && date.month !== 2 && date.day !== 29) return false;
+        if (date.year !== 2020 || date.month !== 2 || date.day !== 29) return false;
         date = new zbDate(2019, 3, 31).addMonths(-1);
-        if (date.year !== 2019 && date.month !== 2 && date.day !== 28) return false;
+        if (date.year !== 2019 || date.month !== 2 || date.day !== 28) return false;
 
         // Test add zero
         date = new zbDate(2020, 2, 29).addMonths(0);
-        if (date.year !== 2020 && date.month !== 2 && date.day !== 29) return false;
+        if (date.year !== 2020 || date.month !== 2 || date.day !== 29) return false;
 
         // Test add
         date = new zbDate(2020, 12, 5).addMonths(2);
-        if (date.year !== 2021 && date.month !== 2 && date.day !== 5) return false;
+        if (date.year !== 2021 || date.month !== 2 || date.day !== 5) return false;
         date = new zbDate(2020, 2, 5).addMonths(2);
-        if (date.year !== 2020 && date.month !== 4 && date.day !== 5) return false;
+        if (date.year !== 2020 || date.month !== 4 || date.day !== 5) return false;
         date = new zbDate(2020, 12, 1).addMonths(1);
-        if (date.year !== 2021 && date.month !== 1 && date.day !== 1) return false;
+        if (date.year !== 2021 || date.month !== 1 || date.day !== 1) return false;
 
         // Test minus
         date = new zbDate(2020, 1, 5).addMonths(-2);
-        if (date.year !== 2019 && date.month !== 11 && date.day !== 5) return false;
+        if (date.year !== 2019 || date.month !== 11 || date.day !== 5) return false;
         date = new zbDate(2020, 7, 5).addMonths(-2);
-        if (date.year !== 2020 && date.month !== 5 && date.day !== 5) return false;
+        if (date.year !== 2020 || date.month !== 5 || date.day !== 5) return false;
         date = new zbDate(2021, 1, 1).addMonths(-1);
-        if (date.year !== 2020 && date.month !== 12 && date.day !== 1) return false;
+        if (date.year !== 2020 || date.month !== 12 || date.day !== 1) return false;
 
         // Test over many months (plus values)
 
@@ -500,14 +433,14 @@ class zbDateTest {
         let date = new zbDate(2020, 3, 5);
 
         // Test invalid parameters
-        if (zbDateTest._invalidObjectParameter(date, 'addYears', undefined) === false) return false;
-        if (zbDateTest._invalidObjectParameter(date, 'addYears', null) === false) return false;
-        if (zbDateTest._invalidObjectParameter(date, 'addYears', 'string') === false) return false;
-        if (zbDateTest._invalidObjectParameter(date, 'addYears', true) === false) return false;
-        if (zbDateTest._invalidObjectParameter(date, 'addYears', false) === false) return false;
-        if (zbDateTest._invalidObjectParameter(date, 'addYears', {}) === false) return false;
-        if (zbDateTest._invalidObjectParameter(date, 'addYears', []) === false) return false;
-        if (zbDateTest._invalidObjectParameter(date, 'addYears', function() {}) === false) return false;
+        if (zbTestException.invalidObjectParameter(date, 'addYears', undefined) === false) return false;
+        if (zbTestException.invalidObjectParameter(date, 'addYears', null) === false) return false;
+        if (zbTestException.invalidObjectParameter(date, 'addYears', 'string') === false) return false;
+        if (zbTestException.invalidObjectParameter(date, 'addYears', true) === false) return false;
+        if (zbTestException.invalidObjectParameter(date, 'addYears', false) === false) return false;
+        if (zbTestException.invalidObjectParameter(date, 'addYears', {}) === false) return false;
+        if (zbTestException.invalidObjectParameter(date, 'addYears', []) === false) return false;
+        if (zbTestException.invalidObjectParameter(date, 'addYears', function() {}) === false) return false;
 
         // Test invalid parameter values
         if (date.addYears(-5000) !== null) return false;
@@ -515,29 +448,70 @@ class zbDateTest {
 
         // Test leap year
         date = new zbDate(2020, 2, 29).addYears(1);
-        if (date.year !== 2021 && date.month !== 2 && date.day !== 28) return false;
+        if (date.year !== 2021 || date.month !== 2 || date.day !== 28) return false;
         date = new zbDate(2019, 2, 28).addYears(1);
-        if (date.year !== 2020 && date.month !== 2 && date.day !== 28) return false;
+        if (date.year !== 2020 || date.month !== 2 || date.day !== 28) return false;
         date = new zbDate(2020, 2, 29).addYears(-1);
-        if (date.year !== 2019 && date.month !== 2 && date.day !== 28) return false;
+        if (date.year !== 2019 || date.month !== 2 || date.day !== 28) return false;
         date = new zbDate(2021, 2, 28).addYears(-1);
-        if (date.year !== 2020 && date.month !== 2 && date.day !== 28) return false;
+        if (date.year !== 2020 || date.month !== 2 || date.day !== 28) return false;
 
         // Test add zero
         date = new zbDate(2020, 2, 29).addYears(0);
-        if (date.year !== 2020 && date.month !== 2 && date.day !== 29) return false;
+        if (date.year !== 2020 || date.month !== 2 || date.day !== 29) return false;
 
         // Test add
         date = new zbDate(2020, 12, 5).addYears(2);
-        if (date.year !== 2022 && date.month !== 12 && date.day !== 5) return false;
-        date = new zbDate(2020, 2, 5).addMonths(3);
-        if (date.year !== 2023 && date.month !== 2 && date.day !== 5) return false;
+        if (date.year !== 2022 || date.month !== 12 || date.day !== 5) return false;
+        date = new zbDate(2020, 2, 5).addYears(3);
+        if (date.year !== 2023 || date.month !== 2 || date.day !== 5) return false;
 
         // Test minus
-        date = new zbDate(2020, 1, 5).addMonths(-2);
-        if (date.year !== 2018 && date.month !== 1 && date.day !== 5) return false;
-        date = new zbDate(2020, 7, 5).addMonths(-3);
-        if (date.year !== 2017 && date.month !== 7 && date.day !== 5) return false;
+        date = new zbDate(2020, 1, 5).addYears(-2);
+        if (date.year !== 2018 || date.month !== 1 || date.day !== 5) return false;
+        date = new zbDate(2020, 7, 5).addYears(-3);
+        if (date.year !== 2017 || date.month !== 7 || date.day !== 5) return false;
+
+        // Return passed
+        return true;
+    }
+
+    /**
+     * Perform the format tests.
+     * @return {boolean} True if passed, False if error found.
+     * @private
+     * @static
+     */
+    static _format() {
+        // Create date object
+        const date = new zbDate(2020, 3, 5);
+
+        // Test invalid parameters
+        if (zbTestException.invalidObjectParameter2(date, 'format', 'yyyy', null) === false) return false;
+        if (zbTestException.invalidObjectParameter2(date, 'format', 'yyyy', 'string') === false) return false;
+        if (zbTestException.invalidObjectParameter2(date, 'format', 'yyyy', true) === false) return false;
+        if (zbTestException.invalidObjectParameter2(date, 'format', 'yyyy', false) === false) return false;
+        if (zbTestException.invalidObjectParameter2(date, 'format', 'yyyy', {}) === false) return false;
+        if (zbTestException.invalidObjectParameter2(date, 'format', 'yyyy', []) === false) return false;
+        if (zbTestException.invalidObjectParameter2(date, 'format', 'yyyy', function() {}) === false) return false;
+        if (zbTestException.invalidObjectParameter2(date, 'format', null, zbCulture.default) === false) return false;
+        if (zbTestException.invalidObjectParameter2(date, 'format', true, zbCulture.default) === false) return false;
+        if (zbTestException.invalidObjectParameter2(date, 'format', false, zbCulture.default) === false) return false;
+        if (zbTestException.invalidObjectParameter2(date, 'format', {}, zbCulture.default) === false) return false;
+        if (zbTestException.invalidObjectParameter2(date, 'format', [], zbCulture.default) === false) return false;
+        if (zbTestException.invalidObjectParameter2(date, 'format', function() {}, zbCulture.default) === false) return false;
+
+        // Defaults
+        let text = date.format();
+        if (text.length === 0) return false;
+
+        // Month in default culture (en-US)
+        text = date.format('MMMM');
+        if (text !== 'March') return false;
+
+        // Month in fr-FR culture
+        text = date.format('MMMM', zbCulture.find('fr-FR'));
+        if (text !== 'mars') return false;
 
         // Return passed
         return true;
@@ -551,20 +525,20 @@ class zbDateTest {
      */
     static _isLeapYear() {
         // Test invalid parameter types
-        if (zbDateTest._invalidStaticParameter(zbDate.isLeapYear, undefined) === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.isLeapYear, null) === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.isLeapYear, 'string') === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.isLeapYear, true) === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.isLeapYear, false) === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.isLeapYear, {}) === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.isLeapYear, []) === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.isLeapYear, function() {}) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.isLeapYear, undefined) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.isLeapYear, null) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.isLeapYear, 'string') === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.isLeapYear, true) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.isLeapYear, false) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.isLeapYear, {}) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.isLeapYear, []) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.isLeapYear, function() {}) === false) return false;
 
         // Test invalid parameter values
-        if (zbDateTest._invalidStaticParameter(zbDate.isLeapYear, 1599) === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.isLeapYear, -2020) === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.isLeapYear, 0) === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.isLeapYear, 4001) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.isLeapYear, 1599) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.isLeapYear, -2020) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.isLeapYear, 0) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.isLeapYear, 4001) === false) return false;
 
         // Set known leap years list
         const knownLeapYearList = [
@@ -615,23 +589,23 @@ class zbDateTest {
      */
     static _getDaysInMonth() {
         // Test invalid parameter types
-        if (zbDateTest._invalidStaticParameter2(zbDate.getDaysInMonth, undefined, undefined) === false) return false;
-        if (zbDateTest._invalidStaticParameter2(zbDate.getDaysInMonth, null, null) === false) return false;
-        if (zbDateTest._invalidStaticParameter2(zbDate.getDaysInMonth, 'string', 'string') === false) return false;
-        if (zbDateTest._invalidStaticParameter2(zbDate.getDaysInMonth, true, true) === false) return false;
-        if (zbDateTest._invalidStaticParameter2(zbDate.getDaysInMonth, false, false) === false) return false;
-        if (zbDateTest._invalidStaticParameter2(zbDate.getDaysInMonth, {}, {}) === false) return false;
-        if (zbDateTest._invalidStaticParameter2(zbDate.getDaysInMonth, [], []) === false) return false;
-        if (zbDateTest._invalidStaticParameter2(zbDate.getDaysInMonth, function() {}, function() {}) === false) return false;
+        if (zbTestException.invalidStaticParameter2(zbDate.getDaysInMonth, undefined, undefined) === false) return false;
+        if (zbTestException.invalidStaticParameter2(zbDate.getDaysInMonth, null, null) === false) return false;
+        if (zbTestException.invalidStaticParameter2(zbDate.getDaysInMonth, 'string', 'string') === false) return false;
+        if (zbTestException.invalidStaticParameter2(zbDate.getDaysInMonth, true, true) === false) return false;
+        if (zbTestException.invalidStaticParameter2(zbDate.getDaysInMonth, false, false) === false) return false;
+        if (zbTestException.invalidStaticParameter2(zbDate.getDaysInMonth, {}, {}) === false) return false;
+        if (zbTestException.invalidStaticParameter2(zbDate.getDaysInMonth, [], []) === false) return false;
+        if (zbTestException.invalidStaticParameter2(zbDate.getDaysInMonth, function() {}, function() {}) === false) return false;
 
         // Test invalid parameter values
-        if (zbDateTest._invalidStaticParameter2(zbDate.getDaysInMonth, 1599, 1) === false) return false;
-        if (zbDateTest._invalidStaticParameter2(zbDate.getDaysInMonth, -2020, 1) === false) return false;
-        if (zbDateTest._invalidStaticParameter2(zbDate.getDaysInMonth, 4001, 1) === false) return false;
-        if (zbDateTest._invalidStaticParameter2(zbDate.getDaysInMonth, 0, 1) === false) return false;
-        if (zbDateTest._invalidStaticParameter2(zbDate.getDaysInMonth, 2020, 0) === false) return false;
-        if (zbDateTest._invalidStaticParameter2(zbDate.getDaysInMonth, 2020, -5) === false) return false;
-        if (zbDateTest._invalidStaticParameter2(zbDate.getDaysInMonth, 2020, 13) === false) return false;
+        if (zbTestException.invalidStaticParameter2(zbDate.getDaysInMonth, 1599, 1) === false) return false;
+        if (zbTestException.invalidStaticParameter2(zbDate.getDaysInMonth, -2020, 1) === false) return false;
+        if (zbTestException.invalidStaticParameter2(zbDate.getDaysInMonth, 4001, 1) === false) return false;
+        if (zbTestException.invalidStaticParameter2(zbDate.getDaysInMonth, 0, 1) === false) return false;
+        if (zbTestException.invalidStaticParameter2(zbDate.getDaysInMonth, 2020, 0) === false) return false;
+        if (zbTestException.invalidStaticParameter2(zbDate.getDaysInMonth, 2020, -5) === false) return false;
+        if (zbTestException.invalidStaticParameter2(zbDate.getDaysInMonth, 2020, 13) === false) return false;
 
         // Test months 1 to 12 (for leap year)
         if (zbDate.getDaysInMonth(2020, 1) !== 31) return false;
@@ -673,20 +647,20 @@ class zbDateTest {
      */
     static _getDaysInYear() {
         // Test invalid parameter types
-        if (zbDateTest._invalidStaticParameter(zbDate.getDaysInYear, undefined) === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.getDaysInYear, null) === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.getDaysInYear, 'string') === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.getDaysInYear, true) === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.getDaysInYear, false) === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.getDaysInYear, {}) === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.getDaysInYear, []) === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.getDaysInYear, function() {}) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.getDaysInYear, undefined) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.getDaysInYear, null) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.getDaysInYear, 'string') === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.getDaysInYear, true) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.getDaysInYear, false) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.getDaysInYear, {}) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.getDaysInYear, []) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.getDaysInYear, function() {}) === false) return false;
 
         // Test invalid parameter values
-        if (zbDateTest._invalidStaticParameter(zbDate.getDaysInYear, 1599) === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.getDaysInYear, -2020) === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.getDaysInYear, 4001) === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.getDaysInYear, 0) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.getDaysInYear, 1599) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.getDaysInYear, -2020) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.getDaysInYear, 4001) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.getDaysInYear, 0) === false) return false;
 
         // Test for leap year
         if (zbDate.getDaysInYear(2020) !== 366) return false;
@@ -726,33 +700,33 @@ class zbDateTest {
      */
     static _fromString() {
         // Test invalid parameter types
-        if (zbDateTest._invalidStaticParameter(zbDate.fromString, undefined) === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.fromString, null) === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.fromString, 123.45) === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.fromString, true) === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.fromString, false) === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.fromString, {}) === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.fromString, []) === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.fromString, function() {}) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.fromString, undefined) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.fromString, null) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.fromString, 123.45) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.fromString, true) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.fromString, false) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.fromString, {}) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.fromString, []) === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.fromString, function() {}) === false) return false;
 
         // Test invalid parameter values
-        if (zbDateTest._invalidStaticParameter(zbDate.fromString, '') === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.fromString, '1234') === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.fromString, 'abcdefg') === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.fromString, 'YYYY-MM-DD') === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.fromString, '1599-01-01') === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.fromString, '0000-01-01') === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.fromString, '4001-01-01') === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.fromString, '9999-01-01') === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.fromString, '2020-00-01') === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.fromString, '2020-13-01') === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.fromString, '2020-99-01') === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.fromString, '2020-05-00') === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.fromString, '2020-05-32') === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.fromString, '2020-05-99') === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.fromString, '2019-02-29') === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.fromString, '2019/02/01') === false) return false;
-        if (zbDateTest._invalidStaticParameter(zbDate.fromString, '2019:02:01') === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.fromString, '') === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.fromString, '1234') === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.fromString, 'abcdefg') === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.fromString, 'YYYY-MM-DD') === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.fromString, '1599-01-01') === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.fromString, '0000-01-01') === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.fromString, '4001-01-01') === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.fromString, '9999-01-01') === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.fromString, '2020-00-01') === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.fromString, '2020-13-01') === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.fromString, '2020-99-01') === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.fromString, '2020-05-00') === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.fromString, '2020-05-32') === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.fromString, '2020-05-99') === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.fromString, '2019-02-29') === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.fromString, '2019/02/01') === false) return false;
+        if (zbTestException.invalidStaticParameter(zbDate.fromString, '2019:02:01') === false) return false;
 
         // Test leap year
         let date = zbDate.fromString('2020-02-29');
@@ -778,21 +752,33 @@ class zbDateTest {
      */
     static _compare() {
         // Test invalid parameter types
-        if (zbDateTest._invalidStaticParameter2(zbDate.compare, undefined, undefined) === false) return false;
-        if (zbDateTest._invalidStaticParameter2(zbDate.compare, null, null) === false) return false;
-        if (zbDateTest._invalidStaticParameter2(zbDate.compare, 'string', 'string') === false) return false;
-        if (zbDateTest._invalidStaticParameter2(zbDate.compare, true, true) === false) return false;
-        if (zbDateTest._invalidStaticParameter2(zbDate.compare, false, false) === false) return false;
-        if (zbDateTest._invalidStaticParameter2(zbDate.compare, {}, {}) === false) return false;
-        if (zbDateTest._invalidStaticParameter2(zbDate.compare, [], []) === false) return false;
-        if (zbDateTest._invalidStaticParameter2(zbDate.compare, function() {}, function() {}) === false) return false;
+        if (zbTestException.invalidStaticParameter2(zbDate.compare, undefined, undefined) === false) return false;
+        if (zbTestException.invalidStaticParameter2(zbDate.compare, null, null) === false) return false;
+        if (zbTestException.invalidStaticParameter2(zbDate.compare, 'string', 'string') === false) return false;
+        if (zbTestException.invalidStaticParameter2(zbDate.compare, true, true) === false) return false;
+        if (zbTestException.invalidStaticParameter2(zbDate.compare, false, false) === false) return false;
+        if (zbTestException.invalidStaticParameter2(zbDate.compare, {}, {}) === false) return false;
+        if (zbTestException.invalidStaticParameter2(zbDate.compare, [], []) === false) return false;
+        if (zbTestException.invalidStaticParameter2(zbDate.compare, function() {}, function() {}) === false) return false;
 
         // Compare less then
         let result = zbDate.compare(new zbDate(2020, 2, 29), new zbDate(2020, 3, 1));
         if (result !== -1) return false;
+        result = zbDate.compare(new zbDate(2020, 2, 15), new zbDate(2020, 2, 16));
+        if (result !== -1) return false;
+        result = zbDate.compare(new zbDate(2020, 1, 17), new zbDate(2020, 2, 16));
+        if (result !== -1) return false;
+        result = zbDate.compare(new zbDate(2019, 3, 17), new zbDate(2020, 2, 16));
+        if (result !== -1) return false;
 
         // Compare greater then
         result = zbDate.compare(new zbDate(2020, 3, 1), new zbDate(2020, 2, 29));
+        if (result !== 1) return false;
+        result = zbDate.compare(new zbDate(2020, 2, 15), new zbDate(2020, 2, 14));
+        if (result !== 1) return false;
+        result = zbDate.compare(new zbDate(2020, 2, 15), new zbDate(2020, 1, 16));
+        if (result !== 1) return false;
+        result = zbDate.compare(new zbDate(2020, 2, 15), new zbDate(2019, 3, 16));
         if (result !== 1) return false;
 
         // Compare equal
@@ -803,110 +789,6 @@ class zbDateTest {
         const date = new zbDate(2020, 2, 29);
         result = zbDate.compare(date, date);
         if (result !== 0) return false;
-
-        // Return passed
-        return true;
-    }
-
-    /**
-     * Perform the dateToDays test.
-     * @return {boolean} True is passed, False if error found.
-     * @private
-     * @static
-     */
-    static _dateToDays() {
-        // Set day count
-        let dayCount = 0;
-
-        // For each year (1 to 2400)
-        for (let year = 1; year <= 2400; year++) {
-            // For each month (1 to 12)
-            for (let month = 1; month <= 12; month++) {
-                // Set days in month
-                const daysInMonth = zbDate._getDaysInMonth(year, month);
-
-                // For each day
-                for (let day = 1; day <= daysInMonth; day++) {
-                    // Increase day count
-                    dayCount++;
-
-                    // Get date to days
-                    const dateToDays = zbDate._getDateToDays(year, month, day);
-
-                    // If they do not match
-                    if (dayCount !== dateToDays) {
-                        // Log error
-                        console.log(`zbDateTest._dateToDays FAILED ${year}, ${month}, ${day}`);
-
-                        // Return failed
-                        return false;
-                    }
-                }
-            }
-        }
-
-        // Return passed
-        return true;
-    }
-
-    /**
-     * Perform the daysToDate test.
-     * @return {boolean} True is passed, False if error found.
-     * @private
-     * @static
-     */
-    static _daysToDate() {
-        // Set day count
-        let dayCount = 0;
-
-        // For each year (1 to 2400)
-        for (let year = 1; year <= 2400; year++) {
-            // For each month (1 to 12)
-            for (let month = 1; month <= 12; month++) {
-                // Set days in month
-                const daysInMonth = zbDate._getDaysInMonth(year, month);
-
-                // For each day
-                for (let day = 1; day <= daysInMonth; day++) {
-                    // Increase day count
-                    dayCount++;
-
-                    // Get days to date
-                    const date = zbDate._getDaysToDate(dayCount);
-
-                    // If they do not match
-                    if (date.year !== year || date.month !== month || date.day !== day) {
-                        // Log error
-                        console.log(`zbDateTest._daysToDate FAILED ${dayCount}`);
-
-                        // Return failed
-                        return false;
-                    }
-                }
-            }
-        }
-
-        // Return passed
-        return true;
-    }
-
-    /**
-     * Perform some date to days and back again testing.
-     * @return {boolean} True is passed, False if error found.
-     * @private
-     * @static
-     */
-    static _dateToDaysToDate() {
-        // Get date to days
-        const dateToDays = zbDate._getDateToDays(2020, 2, 29);
-
-        // Convert back into a date
-        const date = zbDate._getDaysToDate(dateToDays);
-
-        // Check match
-        if (date.year !== 2020) return false;
-        if (date.month !== 2) return false;
-        if (date.day !== 29) return false;
 
         // Return passed
         return true;
