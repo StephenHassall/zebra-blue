@@ -511,7 +511,7 @@ class zbDigitalClock extends HTMLElement {
         // If 12 hour clock shown
         if (show24HourClock === false) {
             // If AM
-            if (this._currentTime.hour <= 12) {
+            if (this._currentTime.hour < 12) {
                 // Show AM
                 this._amChildDomElement.className = 'ampm-child ampm-on';
                 this._pmChildDomElement.className = 'ampm-child ampm-off';

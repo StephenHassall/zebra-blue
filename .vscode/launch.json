@@ -11,6 +11,12 @@
             "file": "${workspaceFolder}/test/web/test.html"
         },
         {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Test MIN",
+            "file": "${workspaceFolder}/test/web/testMin.html"
+        },
+        {
             "type": "node",
             "request": "launch",
             "name": "Make DOC",
@@ -32,6 +38,12 @@
                 "./src",
                 "./test"
             ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Make LIB",
+            "program": "${workspaceFolder}/makeLib.js"
         },
         {
             "type": "node",
