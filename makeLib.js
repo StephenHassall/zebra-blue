@@ -38,9 +38,17 @@ let libraryList = [
             './src/web/calendar/calendar.js',
             './src/web/dayCalendar/dayCalendar.js',
             './src/web/digitalClock/digitalClock.js',
+            './src/web/fractal/fractal.js',
         ],
         outputFile: './lib/web/zb-wc.js',
         outputMinFile: './lib/web/zb-wc.min.js'
+    },
+
+    // Workers
+    {
+        inputFileList: ['./src/web/fractal/fractalWorker.js'],
+        outputFile: './lib/web/fractalWorker.js',
+        outputMinFile: './lib/web/fractalWorker.min.js'
     }
 ];
 

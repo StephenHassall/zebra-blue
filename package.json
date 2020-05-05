@@ -18,5 +18,8 @@
     "eslint-config-google": "^0.14.0",
     "jsdoc": "^3.6.3",
     "terser": "^4.6.11"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }

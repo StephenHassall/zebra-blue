@@ -1,0 +1,132 @@
+/**
+ * Zebra Blue CSS
+ */
+
+/* System Fonts */
+body, label, input, textarea, button {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif;
+}
+
+/* Header */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0.5rem;
+}
+
+/* Paragraph */
+p {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+}
+
+mark {
+  padding: 0.25em;
+  background-color: #f7f9fc;
+  border: 1px solid #eaedef;
+  border-radius: 4px;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+/* Button Defaut */
+button {
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  border-radius: .25rem;
+  border: 0px;
+  font-size: 1rem;
+  line-height: 1rem;
+  padding: 0.5em;
+  color: rgb(248,248,248);
+  background-color: rgb(169,169,169);
+}
+button:focus {
+  background-color: rgb(128,128,128);
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(200,200,200);
+}
+button:hover {
+  background-color: rgb(100,100,100);
+}
+button:active {
+  color: rgb(169,169,169);
+  background-color: rgb(248,248,248);
+}
+button:disabled {
+  background-color: rgb(211,211,211);
+}
+
+/* Button Blue */
+.zb-button-blue {
+  color: rgb(248, 248, 248);
+  background-color: rgb(0,169,255);
+}
+.zb-button-blue:focus {
+  background-color: rgb(0,128,255);
+  box-shadow: 0 0 0 3px rgb(0,200,255);
+}
+.zb-button-blue:hover {
+  background-color: rgb(0,100,255);
+}
+.zb-button-blue:active {
+  color: rgb(0,169,255);
+  background-color: rgb(0,248,255);
+}
+.zb-button-blue:disabled {
+  background-color: rgb(0,211,255);
+}
+
+/* Button Green */
+.zb-button-green {
+  color: rgb(248, 248, 248);
+  background-color: rgb(0,169,0);
+}
+.zb-button-green:focus {
+  background-color: rgb(0,128,0);
+  box-shadow: 0 0 0 3px rgb(0,200,0);
+}
+.zb-button-green:hover {
+  background-color: rgb(0,100,0);
+}
+.zb-button-green:active {
+  color: rgb(0,169,0);
+  background-color: rgb(0,248,0);
+}
+.zb-button-green:disabled {
+  background-color: rgb(0,211,0);
+}
+
+/* Form Inputs */
+label {
+  display: inline-block;
+  margin-bottom: .4rem;
+}
+input, select {
+  display: block;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: normal;
+  border: 1px solid rgb(169,169,169);
+  border-radius: .5rem;
+}
+input:focus,
+select:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgb(200,200,200);
+}

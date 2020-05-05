@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+  <title>Test zb-fractal web compontent</title>
+  <!-- ZB WC -->
+  <script type="application/javascript" charset="utf-8" src="../../../lib/web/zb-wc.min.js"></script>
+</html>
+<body>
+  <button id="test1">Start Render</button>
+  <button id="test2">Stop Render</button>
+  <span id="progress"></span>
+
+  <br><br>
+
+  <!-- ZB Fractal -->
+  <zb-fractal
+    id="zbFractal"
+    fractal-worker-url="/lib/web/fractalWorker.min.js"
+    threads="1"
+    scale-x="-2.5"
+    scale-y="-1.0"
+    scale-width="3.5"
+    color-range2="16"
+    color-range="16"
+    color-map2="0,0,0,255,0,0,0,0,255"
+    color-map3="0,0,0,255,0,0"
+    color-map4="66, 30, 15, 25, 7, 26, 9, 1, 47, 4, 4, 73, 0, 7, 100, 12, 44, 138, 24, 82, 177, 57, 125, 209, 134, 181, 229, 211, 236, 248, 241, 233, 191, 248, 201, 95, 255, 170, 0, 204, 128, 0, 153, 87, 0, 106, 52, 3"
+    color-map5="131,161,243,92,97,197,68,61,147,92,84,174,70,92,156"
+    color-map6="83,55,26,49,36,16,54,24,10,156,32,4,50,32,36"
+    color-map7="247,249,189,148,124,61,20,20,9,164,177,100,84,100,44"
+    color-map8="242,209,95,206,223,233,161,133,90,242,217,235,224,238,240"
+    color-map9="43,24,29,223,171,173,104,117,151,60,84,112,237,217,227"
+    color-map10="160,100,223,75,45,54,101,108,213,217,97,217,4,12,10"
+    color-map11="142,137,160,62,61,87,178,177,191,118,118,129,28,19,27"
+    color-map12="148,0,211,75,0,130,0,0,255,0,255,0,255,255,0,255,127,0,255,0,0"
+    color-map13="74,78,77,14,154,167,61,164,171,246,205,97,254,138,113"
+    color-map14="75,56,50,133,68,66,255,244,230,60,47,47,190,155,123"
+    color-map="168,230,207,220,237,193,255,211,182,255,170,165,255,139,148"
+    pixel-width="600"
+    pixel-height="450"
+    anti-aliasing="1x1"
+    interval="1000"
+    ></zb-fractal>
+
+  <script>
+    // Get zbFractal elements
+    let zbFractalElement = document.getElementById("zbFractal");
+
+    // Set progress span element
+    let progressElement = document.getElementById("progress");
+
+    // Handle zoom event
+    zbFractalElement.addEventListener('zoom', function (event) {
+      // Reset attributes
+      zbFractalElement.setAttribute('scale-x', event.detail.scaleX.toString());
+      zbFractalElement.setAttribute('scale-y', event.detail.scaleY.toString());
+      zbFractalElement.setAttribute('scale-width', event.detail.scaleWidth.toString());
+      
+      // Restart render
+      zbFractalElement.renderStart();
+    });
+
+    // Handle progress
+    zbFractalElement.addEventListener('progress', function (event) {
+      // Set progress text
+      let progressText = event.detail.done.toString() + ' / ' + event.detail.toDo.toString();
+
+      // Update progress
+      progressElement.innerText = progressText;
+    });
+
+    // Get test buttons
+    var test1Element = document.getElementById("test1");
+    var test2Element = document.getElementById("test2");
+
+    // Add test 1 onclick event
+    test1Element.onclick = function () {      
+      // Start render
+      zbFractalElement.renderStart();
+    }
+
+    // Add test 2 onclick event
+    test2Element.onclick = function () {      
+      // Stop render
+      zbFractalElement.renderStop();
+    }
+  </script>
+
+</body>

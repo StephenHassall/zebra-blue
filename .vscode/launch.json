@@ -50,6 +50,21 @@
             "request": "launch",
             "name": "Test node.js",
             "program": "${workspaceFolder}/nodeApp.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Test Server",
+            "program": "${workspaceFolder}/server.js",
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Test Server - Chrome",
+            "port": 9222,
+            "url": "http://localhost:9097/index.html",
+            "webRoot": "${workspaceFolder}",
+            "disableNetworkCache": false
         }
     ]
 }

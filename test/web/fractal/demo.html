@@ -1,0 +1,253 @@
+<!doctype html>
+<html>
+  <title>Demo Fractal Creator</title>
+  <script type="application/javascript" charset="utf-8" src="../../../src/web/fractal/fractal.js"></script>
+  <script type="application/javascript" charset="utf-8" src="fractalFormController.js"></script>
+  <link rel="stylesheet" href="../../../src/web/css/zb.css" type="text/css">
+</html>
+<body style="margin: 0px;">
+
+  <!-- ZB Fractal -->
+  <zb-fractal
+    id="zbFractal"
+    fractal-worker-url="/src/web/fractal/fractalWorker.js"
+    threads="1"
+    scale-x="-2.5"
+    scale-y="-1.25"
+    scale-width="3.5"
+    color-range="16"
+    color-map="66, 30, 15, 25, 7, 26, 9, 1, 47, 4, 4, 73, 0, 7, 100, 12, 44, 138, 24, 82, 177, 57, 125, 209, 134, 181, 229, 211, 236, 248, 241, 233, 191, 248, 201, 95, 255, 170, 0, 204, 128, 0, 153, 87, 0, 106, 52, 3"
+    pixel-width="640"
+    pixel-height="480"
+    anti-aliasing="1x1"
+    interval="1000"></zb-fractal>
+
+  <!-- Parameters, Help, Progress -->
+  <div
+    id="fractalFormController"
+    style="position: absolute; top: 10px; right: 10px;">
+
+    <!-- Progress -->
+    <div id="progress" style="display: inline-block; vertical-align: top;">
+      <div        
+        style="
+          position: relative;
+          display: inline-block;
+          height: 44px;
+          width: 60px;
+          text-align: center;
+          vertical-align: middle;
+          font-size: large;
+          background-color: lightgray;
+          border-radius: 10px;
+          color: white;
+          cursor: pointer;
+          user-select: none;">
+          <div
+            id="progressValue"
+            style="
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);">0%
+          </div>
+      </div>
+    </div>
+
+    <!-- Help Minimised -->
+    <div
+      id="helpMinimised"
+      style="
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        vertical-align: middle;
+        font-size: x-large;
+        background-color: lightgray;
+        border: 2px solid gray;
+        color: white;
+        cursor: pointer;
+        user-select: none;">?
+    </div>
+
+    <!-- Help Maximised -->
+    <div
+      id="helpMaximised"
+      style="display: none; vertical-align: top; border: 2px solid gray;">
+      <div>
+        <div
+          id="helpMaximisedButton"
+          style="
+            float: right;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: x-large;
+            background-color: lightgray;
+            color: white;
+            cursor: pointer;
+            user-select: none;">&gt;
+        </div>
+        <div
+          style="
+            height: 40px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: large;
+            line-height: 40px;
+            background-color: gray;
+            color: white;">Help
+        </div>
+      </div>
+      <div style="background-color: rgb(248,248,248); padding: 10px;">
+        <p>Welcome to the fractal creator demo.</p>
+        <p>Click on the image to zoom in.</p>
+        <p>Press Ctrl + Click on the image to zoom out.</p>
+        <p>After you have changed the parameters you need to press the <mark>Render</mark> button<br> to redraw the image.</p>
+        <p><b>Please Note:</b> The adjusted parameters are not saved and will be lost when the<br>page is closed.</p>
+      </div>
+    </div>
+
+    <!-- Parameters Minimised -->
+    <div
+      id="parametersMinimised"
+      style="
+        display: none;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        vertical-align: middle;
+        font-size: x-large;
+        background-color: lightgray;
+        border: 2px solid gray;
+        color: white;
+        cursor: pointer;
+        user-select: none;">=
+    </div>
+
+    <!-- Parameters Maximised -->
+    <div
+      id="parametersMaximised"
+      style="display: inline-block; vertical-align: top; border: 2px solid gray;">
+      <div>
+        <div
+          id="parametersMaximisedButton"
+          style="
+            float: right;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: x-large;
+            background-color: lightgray;
+            color: white;
+            cursor: pointer;
+            user-select: none;">&gt;
+        </div>
+        <div
+          style="
+            height: 40px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: large;
+            line-height: 40px;
+            background-color: gray;
+            color: white;">Fractor Parameters
+        </div>
+      </div>
+      <div
+        style="background-color: rgb(248,248,248); padding: 10px;">
+
+        <p style="font-size: small;">See more at <a href="https://github.com/StephenHassall">Git Hub</a>, <a href="https://stephenhassall.blogspot.com/">Blog</a>, <a href="https://twitter.com/StephenPHassall">Twitter</a>.</p>
+
+        <hr>
+        <label for="threads">Threads:</label>
+        <input
+          style="width: 100px;"
+          type="number"
+          id="threads"
+          min="1"
+          max="16">
+        <p><small>The number of processor threads to use at the same time.</small></p>
+
+        <label for="imageWidth">Image Width:</label>
+        <input
+          style="width: 100px;"
+          type="number"
+          id="imageWidth"
+          min="320"
+          max="10000"
+          step="10">
+        <p><small>The total width of the final image to create.</small></p>
+
+        <label for="imageHeight">Image Height:</label>
+        <input
+          style="width: 100px;"
+          type="number"
+          id="imageHeight"
+          min="200"
+          max="10000"
+          step="10">
+        <p><small>The total height of the final image to create.</small></p>
+
+        <label for="antiAliasing">Anti-aliasing:</label>
+        <select id="antiAliasing" style="width: 100px;">
+          <option>1x1</option>
+          <option>2x2</option>
+          <option>4x4</option>
+          <option>8x8</option>
+          <option>16x16</option>
+        </select>
+        <p><small>How many times should each pixel in the image be processed.</small></p>
+    
+        <label for="colorPalette">Color Palette:</label>
+        <select id="colorPalette" style="width: 150px;">
+          <option>Mixed</option>
+          <option>Red</option>
+          <option>Blue</option>
+          <option>Gray</option>
+          <option>Mixed Blue</option>
+          <option>Mixed Red</option>
+          <option>Mixed Green</option>
+          <option>Mixed Purple</option>
+          <option>Mixed Gray</option>
+          <option>Candy</option>
+          <option>Sky</option>
+          <option>Moonlight</option>
+          <option>Cappuccino</option>
+          <option>Rainbow</option>
+          <option>Pastel Rainbow</option>
+        </select>
+        <p><small>Which of the pre-designed color palettes to use.</small></p>
+
+        <label for="colorRange">Palette Size:</label>
+        <select id="colorRange" style="width: 100px;">
+          <option>16</option>
+          <option>32</option>
+          <option>48</option>
+          <option>64</option>
+          <option>128</option>
+        </select>
+        <p><small>The size of the color palette. The number of colors to use.</small></p>
+        
+        <button id="render">Render Image</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    // Create and run the fractal form controller
+    let fractalFormController = new FractalFormController();
+
+    // Wait a little before running first render
+    setTimeout(function() {
+      // Run the rendering for the default parameters
+      fractalFormController.run();
+    }, 0);
+  </script>
+</body>
