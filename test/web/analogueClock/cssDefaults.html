@@ -1,0 +1,230 @@
+<!doctype html>
+<html>
+  <title>zb-analogue-clock CSS</title>
+  <!-- zb-analogue-clock styles -->
+  <style>
+    /* ((100/n)*50) - 50 percentage */
+    .face {
+      position: relative;  
+      display: inline-block;
+      min-width: 100px;
+      min-height: 100px;
+      background-color: rgb(253, 252, 237);
+      border-radius: 50%;
+      border: 2px solid black;
+    }
+
+    .face-hour-mark {
+      position: absolute;
+      width: 6%;
+      height: 1%;
+      transform:
+        translate(783.33%,4950%)
+        rotate(calc(var(--angle) * -1))
+        translateX(-770%);
+      background-color: black;
+    }
+
+    .face-minute-mark {
+      position: absolute;
+      width: 4%;
+      height: 0.5%;
+      transform:
+        translate(1200%,9950%)
+        rotate(calc(var(--angle) * -1))
+        translateX(-1165%);
+      background-color: black;
+    }
+
+    .number-parent {
+      position: absolute;
+      width: 20%;
+      height: 20%;
+      text-align: center;
+      display: table;
+      background-color: transparent;
+      transform:
+        translate(200%, 200%)
+        rotate(var(--angle))
+        translateY(-180%)
+        rotate(calc(var(--angle) * -1));
+    }
+
+    .number-child {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    .clock-hand {
+      position: absolute;
+      width: 100%;
+      height: 10%;
+      display: inline-block;
+    }
+    
+    .clock-hour {
+      background-color: transparent;
+      transform: translate(0%, 450%) rotate(var(--angle))
+    }
+
+    .clock-hour-hand {
+      width: 40%;
+      height: 40%;
+      transform: translate(100%, 80%);
+      background-color: black;
+      clip-path: polygon(0% 50%, 25% 0%, 100% 50%, 25% 100%);
+    }
+
+    .clock-minute {
+      background-color: transparent;
+      transform: translate(0%, 450%) rotate(var(--angle))
+    }
+
+    .clock-minute-hand {
+      width: 60%;
+      height: 30%;
+      transform: translate(65%, 120%);
+      background-color: black;
+      clip-path: polygon(0% 50%, 18% 0%, 100% 50%, 18% 100%);
+    }
+
+    .clock-second {
+      background-color: transparent;
+      transform: translate(0%, 450%) rotate(var(--angle));
+    }
+
+    .clock-second-hand {
+      width: 60%;
+      height: 10%;
+      transform: translate(55%, 450%);
+      background-color: red;
+      clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+    }
+
+    .clock-center {
+      position: absolute;
+      width: 5%;
+      height: 5%;
+      border-radius: 50%;
+      background-color: red;
+      transform: translate(950%, 950%);
+    }
+  </style>
+</html>
+<body>
+
+  <div
+    style="font-family: Arial, Helvetica, sans-serif; font-size: medium; width: 300px; height: 300px;"
+    class="face">
+
+    <!-- Hour Marks -->
+    <div class="face-hour-mark" style="--angle: 30deg;"></div>
+    <div class="face-hour-mark" style="--angle: 60deg;"></div>
+    <div class="face-hour-mark" style="--angle: 90deg;"></div>
+    <div class="face-hour-mark" style="--angle: 120deg;"></div>
+    <div class="face-hour-mark" style="--angle: 150deg;"></div>
+    <div class="face-hour-mark" style="--angle: 180deg;"></div>
+    <div class="face-hour-mark" style="--angle: 210deg;"></div>
+    <div class="face-hour-mark" style="--angle: 240deg;"></div>
+    <div class="face-hour-mark" style="--angle: 270deg;"></div>
+    <div class="face-hour-mark" style="--angle: 300deg;"></div>
+    <div class="face-hour-mark" style="--angle: 330deg;"></div>
+    <div class="face-hour-mark" style="--angle: 0deg;"></div>
+
+    <!-- Minute Marks -->
+    <div class="face-minute-mark" style="--angle: 6deg;"></div>
+    <div class="face-minute-mark" style="--angle: 12deg;"></div>
+    <div class="face-minute-mark" style="--angle: 18deg;"></div>
+    <div class="face-minute-mark" style="--angle: 24deg;"></div>
+
+    <div class="face-minute-mark" style="--angle: 36deg;"></div>
+    <div class="face-minute-mark" style="--angle: 42deg;"></div>
+    <div class="face-minute-mark" style="--angle: 48deg;"></div>
+    <div class="face-minute-mark" style="--angle: 54deg;"></div>
+
+    <div class="face-minute-mark" style="--angle: 66deg;"></div>
+    <div class="face-minute-mark" style="--angle: 72deg;"></div>
+    <div class="face-minute-mark" style="--angle: 78deg;"></div>
+    <div class="face-minute-mark" style="--angle: 84deg;"></div>
+
+    <div class="face-minute-mark" style="--angle: 96deg;"></div>
+    <div class="face-minute-mark" style="--angle: 102deg;"></div>
+    <div class="face-minute-mark" style="--angle: 108deg;"></div>
+    <div class="face-minute-mark" style="--angle: 114deg;"></div>
+
+    <div class="face-minute-mark" style="--angle: 126deg;"></div>
+    <div class="face-minute-mark" style="--angle: 132deg;"></div>
+    <div class="face-minute-mark" style="--angle: 138deg;"></div>
+    <div class="face-minute-mark" style="--angle: 144deg;"></div>
+
+    <div class="face-minute-mark" style="--angle: 156deg;"></div>
+    <div class="face-minute-mark" style="--angle: 162deg;"></div>
+    <div class="face-minute-mark" style="--angle: 168deg;"></div>
+    <div class="face-minute-mark" style="--angle: 174deg;"></div>
+
+    <div class="face-minute-mark" style="--angle: 186deg;"></div>
+    <div class="face-minute-mark" style="--angle: 192deg;"></div>
+    <div class="face-minute-mark" style="--angle: 198deg;"></div>
+    <div class="face-minute-mark" style="--angle: 204deg;"></div>
+
+    <div class="face-minute-mark" style="--angle: 216deg;"></div>
+    <div class="face-minute-mark" style="--angle: 222deg;"></div>
+    <div class="face-minute-mark" style="--angle: 228deg;"></div>
+    <div class="face-minute-mark" style="--angle: 234deg;"></div>
+
+    <div class="face-minute-mark" style="--angle: 246deg;"></div>
+    <div class="face-minute-mark" style="--angle: 252deg;"></div>
+    <div class="face-minute-mark" style="--angle: 258deg;"></div>
+    <div class="face-minute-mark" style="--angle: 264deg;"></div>
+
+    <div class="face-minute-mark" style="--angle: 276deg;"></div>
+    <div class="face-minute-mark" style="--angle: 282deg;"></div>
+    <div class="face-minute-mark" style="--angle: 288deg;"></div>
+    <div class="face-minute-mark" style="--angle: 294deg;"></div>
+
+    <div class="face-minute-mark" style="--angle: 306deg;"></div>
+    <div class="face-minute-mark" style="--angle: 312deg;"></div>
+    <div class="face-minute-mark" style="--angle: 318deg;"></div>
+    <div class="face-minute-mark" style="--angle: 324deg;"></div>
+
+    <div class="face-minute-mark" style="--angle: 336deg;"></div>
+    <div class="face-minute-mark" style="--angle: 342deg;"></div>
+    <div class="face-minute-mark" style="--angle: 348deg;"></div>
+    <div class="face-minute-mark" style="--angle: 354deg;"></div>
+
+    <!-- Numbers -->
+    <div class="number-parent" style="--angle: 30deg;"><div class="number-child">1</div></div>
+    <div class="number-parent" style="--angle: 60deg;"><div class="number-child">2</div></div>
+    <div class="number-parent" style="--angle: 90deg;"><div class="number-child">3</div></div>
+    <div class="number-parent" style="--angle: 120deg;"><div class="number-child">4</div></div>
+    <div class="number-parent" style="--angle: 150deg;"><div class="number-child">5</div></div>
+    <div class="number-parent" style="--angle: 180deg;"><div class="number-child">6</div></div>
+    <div class="number-parent" style="--angle: 210deg;"><div class="number-child">7</div></div>
+    <div class="number-parent" style="--angle: 240deg;"><div class="number-child">8</div></div>
+    <div class="number-parent" style="--angle: 270deg;"><div class="number-child">9</div></div>
+    <div class="number-parent" style="--angle: 300deg;"><div class="number-child">10</div></div>
+    <div class="number-parent" style="--angle: 330deg;"><div class="number-child">11</div></div>
+    <div class="number-parent" style="--angle: 0deg;"><div class="number-child">12</div></div>
+
+    <!-- Hour Hand -->
+    <div class="clock-hand clock-hour" style="--angle: 240deg;">
+      <div class="clock-hour-hand"></div>
+    </div>
+
+    <!-- Minute Hand -->
+    <div class="clock-hand clock-minute" style="--angle: 90deg;">
+      <div class="clock-minute-hand"></div>
+    </div>
+
+    <!-- Second Hand -->
+    <div class="clock-hand clock-second" style="--angle: 100deg;">
+      <div class="clock-second-hand"></div>
+    </div>
+    
+    <!-- Center Dot -->
+    <div class="clock-center"></div>   
+    
+  </div>
+
+
+</body>

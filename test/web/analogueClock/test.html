@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <title>Test zb-analogue-clock web compontent</title>
+  <!-- ZB Analogue Clock -->
+  <script type="application/javascript" charset="utf-8" src="../../../src/web/analogueClock/analogueClock.js"></script>
+</html>
+<body>
+  <!-- ZB Analog Clock -->
+  <p>Small</p>
+  <zb-analogue-clock style="width: 150px; height: 150px; font-size: small;"></zb-analogue-clock>
+
+  <p>Larger and Roman</p>
+  <zb-analogue-clock
+    id="zbAnalogueClock1"
+    roman
+    style="width: 300px; height: 300px; font-family: Arial, Helvetica, sans-serif; font-size: x-large;"></zb-analogue-clock>
+
+  <p>Larger Still</p>
+  <zb-analogue-clock style="width: 600px; height: 600px; font-family: Arial, Helvetica, sans-serif; font-size: xx-large;"></zb-analogue-clock>
+
+  <br>
+  <button id="test1">Roman</button>
+  <button id="test2">Number</button>
+
+  <script>
+    // Get zbAnalogueClock element
+    let zbAnalogueClockElement = document.getElementById("zbAnalogueClock1");
+
+    // Get test buttons
+    var test1Element = document.getElementById("test1");
+    var test2Element = document.getElementById("test2");
+
+    // Add test 1 onclick event
+    test1Element.onclick = function () {      
+      // Set roman
+      zbAnalogueClock1.setAttribute('roman', true);
+    }
+
+    // Add test 2 onclick event
+    test2Element.onclick = function () {      
+      // Set number
+      zbAnalogueClock1.removeAttribute('roman');
+    }
+  </script>
+
+</body>

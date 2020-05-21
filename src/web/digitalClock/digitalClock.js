@@ -572,5 +572,5 @@ class zbDigitalClock extends HTMLElement {
     }
 }
 
-// Define digital click web component
+// Define digital clock web component
 customElements.define('zb-digital-clock', zbDigitalClock);

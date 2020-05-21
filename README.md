@@ -20,6 +20,7 @@ JavaScript
 7. zbDayCalendar web component that displays month, day of month and day of week.
 8. zbCalendar web component that can be used to select a day in a month.
 9. zbDigitalClock web component that shows a simple digital clock.
+10. zbFractal web component that creates fractal images.
 
 Also includes unit testing code.
 

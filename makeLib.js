@@ -35,6 +35,7 @@ let libraryList = [
     // zb-wc (web components)
     {
         inputFileList: [
+            './src/web/analogueClock/analogueClock.js',
             './src/web/calendar/calendar.js',
             './src/web/dayCalendar/dayCalendar.js',
             './src/web/digitalClock/digitalClock.js',

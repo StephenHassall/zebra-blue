@@ -22,7 +22,7 @@
  *   threadNumber - The thread's number
  *   jobNumber - The job performed
  *   lineNumber - The line created
- *   linePixelData - Line image data (an ImageData object & a transferable object)
+ *   linePixelData - Line image data (an ImageData object)
  */
 
 // Set color palette list
@@ -251,7 +251,7 @@ onmessage = function(event) {
         result.linePixelData = linePixelData;
 
         // Post result back
-        self.postMessage(result, result.linePixelData);
+        self.postMessage(result);
     }
 
     // Create result to post back
