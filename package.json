@@ -20,6 +20,6 @@
     "terser": "^4.6.11"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   }
 }
