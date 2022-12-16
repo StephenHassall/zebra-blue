@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+  <title>zb-table CSS</title>
+</html>
+<body>
+  
+  <!-- zb-table styles -->
+  <style>
+    .root {
+      min-width: 200px;
+      min-height: 200px;
+      user-select: none;
+    }
+    .table {
+      width: 100%;
+      border-spacing: 0;
+      padding: 0;
+      margin: 0;
+    }
+    .header {
+      background-color: lightsteelblue;
+    }
+    .header th {
+      color: rgb(48, 48, 48);
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+    .row {
+      cursor: pointer;
+      
+    }
+    .row td {
+      padding: 5px;
+      border-top: 1px solid rgb(120, 120, 120);
+    }
+    .row:nth-child(odd) {
+      background-color: white;
+    }
+    .row:nth-child(even) {
+      background-color: rgb(238, 238, 238);
+    }
+    .row td:nth-child(n+2) {
+      border-left: 1px dashed rgb(180, 180, 180);
+    }
+    .row:hover {
+      background-color: gold;
+    }
+
+  </style>
+
+  <!-- zb-table -->
+  <div style="display: inline-block; font-family: Arial, Helvetica, sans-serif; font-size: 18px; line-height: 24px;">
+    <table class="table">
+      <thead class="header">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row">
+          <td>1001</td>
+          <td>John Green</td>
+          <td>01926 555 22345</td>
+          <td>john.green@hotmail.com</td>
+        </tr>
+        <tr class="row">
+          <td>1002</td>
+          <td>Sue Smith</td>
+          <td>01926 555 9304</td>
+          <td>suesmith12345@hotmail.com</td>
+        </tr>
+        <tr class="row">
+          <td>1003</td>
+          <td>Ian Stephenson</td>
+          <td>01926 555 8932</td>
+          <td>ianstephenson101@gmail.com</td>
+        </tr>
+        <tr class="row">
+          <td>1004</td>
+          <td>Tom Hill</td>
+          <td>01926 555 2311</td>
+          <td>tomhill449955@gmail.com</td>
+        </tr>
+        <tr class="row">
+          <td>1005</td>
+          <td>Daniel Thompson</td>
+          <td>01926 555 3477</td>
+          <td>daniel2233@hotmail.com</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>

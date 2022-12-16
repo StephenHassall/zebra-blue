@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+  <title>Test zb-drop-down-list web compontent</title>
+  <!-- ZB Drop Down List -->
+  <script type="application/javascript" charset="utf-8" src="../../../src/web/dropDownList/dropDownList.js"></script>
+</html>
+<body>
+  <div>BEFORE</div>
+  <!-- ZB Drop Down List -->
+  <zb-drop-down-list id="test1">
+    <div style="background-color: lightsalmon; margin: 0; padding: 0;" slot="trigger">TRIGGER</div>
+    <div id="item1" slot="item">Item #1</div>
+    <div id="item2" slot="item">Item #2</div>
+    <div id="item3" slot="item">Item #3</div>
+    <div slot="item"></div>
+    <div id="item4" slot="item">Item #4</div>
+    <div id="item5" slot="item">Item #5</div>
+    <div id="item6" slot="item">Item #6</div>
+    <div id="item7" slot="item">Item #7</div>
+    <div id="item8" slot="item">Item #8</div>
+    <div id="item9" slot="item">Item #9</div>
+    <div id="item10" slot="item">Item #10</div>
+    <div slot="item"></div>
+    <div id="item11" slot="item">Item #11</div>
+    <div id="item12" slot="item">Item #12</div>
+  </zb-drop-down-list>
+  <div>AFTER</div>
+
+  <!-- ZB Drop Down List -->
+  <div style="position: absolute; left: 500px; top: 400px;">
+    <div style="display: inline-block;">BEFORE</div>
+    <zb-drop-down-list id="test2">
+      <div style="background-color: lightsalmon; margin: 0; padding: 0;" slot="trigger">TRIGGER</div>
+      <div slot="item">Item #1</div>
+      <div slot="item">Item #2</div>
+      <div slot="item">Item #3</div>
+      <div slot="item"></div>
+      <div slot="item">Item #4</div>
+      <div slot="item">Item #5</div>
+      <div slot="item">Item #6</div>
+      <div slot="item">Item #7</div>
+      <div slot="item">Item #8</div>
+      <div slot="item">Item #9</div>
+      <div slot="item">Item #10</div>
+      <div slot="item"></div>
+      <div slot="item">Item #11</div>
+      <div slot="item">Item #12</div>
+    </zb-drop-down-list>
+    <div style="display: inline-block;">AFTER</div>
+  </div>
+
+  <button id="testBottomLeft">Bottom Left</button>
+  <button id="testBottomCenter">Bottom Center</button>
+  <button id="testBottomRight">Bottom Right</button>
+
+  <button id="testTopLeft">Top Left</button>
+  <button id="testTopCenter">Top Center</button>
+  <button id="testTopRight">Top Right</button>
+
+  <button id="testLeftTop">Left Top</button>
+  <button id="testLeftCenter">Left Center</button>
+  <button id="testLeftBottom">Left Bottom</button>
+
+  <button id="testRightTop">Right Top</button>
+  <button id="testRightCenter">Right Center</button>
+  <button id="testRightBottom">Right Bottom</button>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <p>END PAGE</p>
+
+  <script>
+    // Get test elements
+    let test1Element = document.getElementById("test1");
+    let test2Element = document.getElementById("test2");
+
+    test2Element.addEventListener('select', function (event) {
+      let rect = test2Element.getBoundingClientRect();
+      console.log('SELECT ' + event.detail.id);
+      console.log(rect.left.toString() + ':' + rect.top.toString())
+    });
+
+    // Get test buttons
+    var testBottomLeftElement = document.getElementById("testBottomLeft");
+    var testBottomCenterElement = document.getElementById("testBottomCenter");
+    var testBottomRightElement = document.getElementById("testBottomRight");
+    var testTopLeftElement = document.getElementById("testTopLeft");
+    var testTopCenterElement = document.getElementById("testTopCenter");
+    var testTopRightElement = document.getElementById("testTopRight");
+    var testLeftTopElement = document.getElementById("testLeftTop");
+    var testLeftCenterElement = document.getElementById("testLeftCenter");
+    var testLeftBottomElement = document.getElementById("testLeftBottom");
+    var testRightTopElement = document.getElementById("testRightTop");
+    var testRightCenterElement = document.getElementById("testRightCenter");
+    var testRightBottomElement = document.getElementById("testRightBottom");
+
+    // Add test button onclick event
+    testBottomLeftElement.onclick = function () { test2Element.position = 'bottom-left'; }
+    testBottomCenterElement.onclick = function () { test2Element.position = 'bottom-center'; }
+    testBottomRightElement.onclick = function () { test2Element.position = 'bottom-right'; }
+    testTopLeftElement.onclick = function () { test2Element.position = 'top-left'; }
+    testTopCenterElement.onclick = function () { test2Element.position = 'top-center'; }
+    testTopRightElement.onclick = function () { test2Element.position = 'top-right'; }
+    testLeftTopElement.onclick = function () { test2Element.position = 'left-top'; }
+    testLeftCenterElement.onclick = function () { test2Element.position = 'left-center'; }
+    testLeftBottomElement.onclick = function () { test2Element.position = 'left-bottom'; }
+    testRightTopElement.onclick = function () { test2Element.position = 'right-top'; }
+    testRightCenterElement.onclick = function () { test2Element.position = 'right-center'; }
+    testRightBottomElement.onclick = function () { test2Element.position = 'right-bottom'; }
+
+  </script>
+
+</body>

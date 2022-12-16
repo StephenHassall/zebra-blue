@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+  <title>zb-layout CSS</title>
+
+  <script type="application/javascript" charset="utf-8" src="testText.js"></script>
+
+  <!-- zb-layout styles -->
+  <style>
+    .zb-layout {
+      position: relative;
+    }
+    .zb-layout-body {
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .zb-layout-overlay {
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9;
+      background-color: transparent;
+      outline: 0.15rem solid gold;
+    }
+    .zb-layout-overlay-cell-row {
+      border-top-style: dashed;
+      border-top-width: 0.1rem;
+      border-top-color: grey;
+    }
+    .zb-layout-overlay-cell-row-first {
+      border-top-width: 0;
+    }
+    .zb-layout-overlay-cell-column {
+      border-left-style: dashed;
+      border-left-width: 0.1rem;
+      border-left-color: grey;
+    }
+    .zb-layout-overlay-cell-column-first {
+      border-left-width: 0;
+    }
+  </style>
+</html>
+<body>
+
+  <div
+    style="width: 600px; height: 400px;"
+    class="zb-layout">
+    <div
+      style="
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;"
+      class="zb-layout-body">
+
+      <zb-test-text style="grid-row: 1; grid-column: 1;" text="test #1-1"></zb-test-text>
+      <zb-test-text style="grid-row: 2; grid-column: 2;" text="test #2-2"></zb-test-text>
+
+    </div>
+
+    <div
+      style="
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;"
+      class="zb-layout-overlay">
+      <div style="grid-row: 1; grid-column: 1;" class="zb-layout-overlay-cell-row-first zb-layout-overlay-cell-column-first"></div>
+      <div style="grid-row: 1; grid-column: 2;" class="zb-layout-overlay-cell-row-first zb-layout-overlay-cell-column"></div>
+      <div style="grid-row: 1; grid-column: 3;" class="zb-layout-overlay-cell-row-first zb-layout-overlay-cell-column"></div>
+      <div style="grid-row: 2; grid-column: 1;" class="zb-layout-overlay-cell-row zb-layout-overlay-cell-column-first"></div>
+      <div style="grid-row: 2; grid-column: 2;" class="zb-layout-overlay-cell-row zb-layout-overlay-cell-column"></div>
+      <div style="grid-row: 2; grid-column: 3;" class="zb-layout-overlay-cell-row zb-layout-overlay-cell-column"></div>
+    </div>
+  </div>
+
+  <div
+    style="
+      width: 10px;
+      height: 10px;
+      background-image: url(circle.svg);
+    "></div>
+
+<img style="fill:hotpink;" src="circle.svg">
+
+<svg>
+  <use xlink:href="circle.svg" style="--color_fill: #000;"></use>
+</svg>
+
+</body>

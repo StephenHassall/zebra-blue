@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+  <title>zb-drop-down-list CSS</title>
+  <!-- zb-drop-down-list styles -->
+  <style>
+    .scroll-bar {
+      
+    }
+    .scroll-bar::-webkit-scrollbar-track
+    {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      background-color: #F5F5F5;
+    }
+
+    .scroll-bar::-webkit-scrollbar
+    {
+      width: 6px;
+      background-color: #F5F5F5;
+    }
+
+    .scroll-bar::-webkit-scrollbar-thumb
+    {
+      background-color: #7690ec;
+    }
+
+    .drop-down-list {
+      position: relative;
+    }
+    .drop-down-list-trigger {
+
+    }
+    .drop-down-list-body {
+      position: absolute;
+      min-width: 10vw;
+      max-width: 80vw;
+      box-shadow: 0 2px 6px 0 rgba(0,0,0,.1);
+      border: 1px solid rgba(0,0,0,.1);
+      background: #fff;
+    }
+    .drop-down-list-content {
+      overflow: hidden;
+      overflow-y: auto;
+      max-height: 80vh;
+    }
+    .drop-down-list-item {
+      padding-top: 0.4em;
+      padding-bottom: 0.4em;
+      padding-left: 0.8em;
+      padding-right: 0.8em;
+      cursor: pointer;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .drop-down-list-item:hover {
+      background-color: lightskyblue;
+    }
+    .drop-down-list-line {
+      padding-top: 0;
+      padding-bottom: 0;
+      padding-left: 0;
+      padding-right: 0;
+      margin: 0;
+      border-top: 1px solid #ececec;      
+    }
+  </style>
+</html>
+<body style="position: relative;">
+
+  <!-- Drop Down List -->
+  <div style="position: absolute; top: 200px; left: 100px;" class="drop-down-list">
+    <!-- Slot Trigger -->
+    <div>TRIGGER</div>
+
+    <!-- Drop Down List Body -->
+    <div class="drop-down-list-body">
+
+      <!-- Content -->
+      <div class="drop-down-list-content scroll-bar">
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #1</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #2</div>
+
+        <!-- Slop Line -->
+        <div class="drop-down-list-line"></div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #3</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #4 with long text</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #5</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #6</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #7</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #8</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #9</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #10</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #11</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #12</div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Drop Down List -->
+  <div style="position: absolute; top: 0px; left: 300px;" class="drop-down-list">
+    <!-- Slot Trigger -->
+    <div>TRIGGER</div>
+
+    <!-- Drop Down List Body -->
+    <div class="drop-down-list-body">
+
+      <!-- Header -->
+      <div class="drop-down-list-header"></div>
+
+      <!-- Content -->
+      <div class="drop-down-list-content scroll-bar">
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #1</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #2</div>
+
+        <!-- Slop Line -->
+        <div class="drop-down-list-line"></div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #3</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #4 with long text</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #5</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #6</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #7</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #8</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #9</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #10</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #11</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #12</div>
+
+      </div>
+
+      <!-- Footer -->
+      <div class="drop-down-list-footer"></div>
+
+    </div>
+
+  </div>
+
+  <!-- Test clipping -->
+  <div style="
+    position: absolute;
+    top: 0px;
+    left: 500px;
+    width: 100px;
+    height: 200px;
+    background-color: lightyellow;
+    overflow: hidden;">
+
+  <!-- Drop Down List -->
+  <div class="drop-down-list">
+    <!-- Slot Trigger -->
+    <div>TRIGGER</div>
+
+    <!-- Drop Down List Body -->
+    <div class="drop-down-list-body">
+
+      <!-- Content -->
+      <div class="drop-down-list-content scroll-bar">
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #1</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #2</div>
+
+        <!-- Slop Line -->
+        <div class="drop-down-list-line"></div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #3</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #4 with long text</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #5</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #6</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #7</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #8</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #9</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #10</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #11</div>
+
+        <!-- Slop Item -->
+        <div class="drop-down-list-item">Item #12</div>
+
+      </div>
+
+    </div>
+
+  </div>
+  </div>
+
+</body>

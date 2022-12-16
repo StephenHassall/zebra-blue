@@ -1,9 +1,12 @@
 # Zebra Blue
 
+The repo is now abandoned and is no longer updated.
+
+Visit my main site https://CodeRunDebug.com for the latest information and code.
+
+
 A simple set of code I am working on to explore Visual Studio Code, JavaScript, NodeJS, JSDocs, ESLint and anything
 else I find interesting.
-
-Visit my blog site https://stephenhassall.blogspot.com
 
 Its all free, so use it if you want.
 
